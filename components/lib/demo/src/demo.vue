@@ -1,19 +1,18 @@
 <template>
-	<section class="c-card">
-			这里是card组件
-	</section>
+	<div>这里是demo组件</div>
 </template>
 
 <script>
 export default {
-	name: 'card',
+	name: 'demo',
 	computed: {
 		// cachedViews() {
 		// 	// return this.$store.state.tagsView.cachedViews;
 		// },
-		key() {
-			return this.$route.fullPath;
-		},
+		// key() {
+		// 	return this.$route.fullPath;
+		// },
 	},
 };
 </script>
+

@@ -1,12 +1,10 @@
 <template>
-	<section class="c-demo1">
-			这里是demo组件
-	</section>
+	<div class="c-card">这里是card组件</div>
 </template>
 
 <script>
 export default {
-	name: 'demo1',
+	name: 'card',
 	computed: {
 		// cachedViews() {
 		// 	// return this.$store.state.tagsView.cachedViews;
@@ -17,3 +15,9 @@ export default {
 	},
 };
 </script>
+
+<style lang="scss">
+.c-card {
+// 	border: 1px solid red;
+}
+</style>

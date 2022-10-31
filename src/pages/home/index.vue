@@ -1,9 +1,8 @@
 <template>
 	<div class="main-page page-home">
-		<demo />
+		<!-- <demo /> -->
 		<card />
-		<header1 />
-		<demo />
+
 		<div class="box">这里是主页</div>
 	</div>
 </template>
