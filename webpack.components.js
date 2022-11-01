@@ -29,7 +29,7 @@ module.exports = {
 	output: {
 		filename: '[name].umd.js',
 		// path: 'dist',
-		path: path.resolve(__dirname, 'comdist'),
+		path: path.resolve(__dirname, 'componentsdist'),
 		library: 'vui',
 		libraryTarget: 'umd',
 	},

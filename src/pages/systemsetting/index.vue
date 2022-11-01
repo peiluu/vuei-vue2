@@ -15,7 +15,7 @@ export default {
 	mounted() {
 		this.getData();
 		// console.log(request);
-		console.log(post);
+
 	},
 	methods: {
 		getData() {

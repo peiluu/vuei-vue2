@@ -1,8 +1,8 @@
 {
   "name": "vuipeilu",
-  "version": "0.1.1",
+  "version": "0.1.7",
   "description": "vui-自定义组件库",
-  "main": "distcomponents/index.umd.js",
+  "main": "componentsdist/index.umd.js",
   "keywords": [
     "vui组件库",
     "vue",
@@ -11,17 +11,18 @@
   "author": "pei_lu",
   "type": "commonjs",
   "files": [
-    "distcomponents",
+    "componentsdist",
     "components"
   ],
   "license": "ISC",
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:js": "webpack --config ./webpack.components.js",
+    "build:js": "npm rebuild node-sass && webpack --config ./webpack.components.js",
     "build:css": "npx gulp sass",
-    "build:com": "npx gulp sass && webpack --config ./webpack.components.js",
-    "lint": "vue-cli-service lint"
+    "build:com": "npm rebuild node-sass && webpack --config ./webpack.components.js && npx gulp sass",
+    "lint": "vue-cli-service lint",
+    "clean": "rimraf node_modules && npm cache clear --force"
   },
   "dependencies": {
     "axios": "^1.1.3",
@@ -30,7 +31,7 @@
     "vue": "^2.6.11",
     "vue-router": "^3.1.3",
     "vuex": "^4.1.0",
-    "vuipeilu": "0.1.1"
+    "vuipeilu": "^0.1.7"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.19",

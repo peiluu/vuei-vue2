@@ -1,7 +1,6 @@
 <template>
 	<div class="main-page page-home">
-		<!-- <demo /> -->
-		<!-- <card /> -->
+		<card />
 
 		<div class="box">这里是主页</div>
 	</div>
@@ -11,6 +10,7 @@
 /* eslint-disable no-unused-vars */
 
 import { post } from '@/utils/request.js';
+import { demo } from 'vuipeilu';
 export default {
 	name: 'home',
 	components: {},
@@ -18,9 +18,8 @@ export default {
 		return {};
 	},
 	mounted() {
-		this.getData();
+		// this.getData();
 		// console.log(request);
-		console.log(post);
 	},
 	methods: {
 		getData() {
@@ -34,10 +33,8 @@ export default {
 </script>
 
 <style lang="scss">
-
 .page-home {
 	.box {
-
 		@include circle;
 	}
 }
