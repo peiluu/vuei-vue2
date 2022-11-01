@@ -1,7 +1,7 @@
 <template>
 	<div class="main-page page-home">
 		<!-- <demo /> -->
-		<card />
+		<!-- <card /> -->
 
 		<div class="box">这里是主页</div>
 	</div>
