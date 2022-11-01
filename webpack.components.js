@@ -5,6 +5,12 @@ const glob = require('glob');
 // const VueLoaderPlugin = require('vue-loader/lib/plugin');
 // const [VueLoaderPlugin] = require('vue-loader')
 
+// 提取css成单独文件
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+// 压缩css
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const list = {
@@ -33,35 +39,43 @@ module.exports = {
 		library: 'vui',
 		libraryTarget: 'umd',
 	},
-	
+
 	mode: 'production',
-	plugins: [new VueLoaderPlugin()],
+	plugins: [
+		new VueLoaderPlugin(),
+		new MiniCssExtractPlugin({
+			// path: path.resolve(__dirname, 'componentsdist'),
+			// filename: 'css/index.css',
+			filename: 'css/[name].css',
+		}),
+		new OptimizeCssAssetsPlugin(),
+	],
 	module: {
 		// 对于什么样的文件使用什么样的loader
 		rules: [
 			{
-        test: /\.scss$/,
-        use: ["css-loader", "sass-loader"],
-      },
-      {
-        test: /\.css$/,
-        use: [
-          "style-loader",
-          // MiniCssExtractPlugin.loader
-          "css-loader",
-          {
-            // 压缩css
-            loader: "postcss-loader",
-            options: {
-              ident: "postcss",
-              plugins: () => [
-                // postcss的插件
-                // require("postcss-preset-env")(),
-              ],
-            },
-          },
-        ],
-      },
+				test: /\.scss$/,
+				use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+			},
+			{
+				test: /\.css$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					'style-loader',
+					'css-loader',
+					// {
+					// 	// 压缩css
+					// 	loader: 'postcss-loader',
+					// 	options: {
+					// 		ident: 'postcss',
+					// 		plugins: () => [
+					// 			// postcss的插件
+					// 			// require("postcss-preset-env")(),
+					// 		],
+					// 	},
+					// },
+				],
+			},
 			{
 				test: /\.vue$/,
 				use: [

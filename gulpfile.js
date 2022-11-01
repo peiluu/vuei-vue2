@@ -9,5 +9,5 @@ gulp.task('sass', async () => {
 		.src('components/css/**/*.scss')
 		.pipe(sass())
 		.pipe(minifyCSS())
-		.pipe(gulp.dest('componentsdist/css'));
+		.pipe(gulp.dest('componentsdist/distcss'));
 });

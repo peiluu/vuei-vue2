@@ -16,3 +16,9 @@ export default {
 };
 </script>
 
+<style lang="scss">
+@import '../../../css/demo.scss';
+.c-card {
+	// 	border: 1px solid red;
+}
+</style>
