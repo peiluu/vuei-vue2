@@ -11770,6 +11770,19 @@ vuipeilu@^0.1.7:
     vuex "^4.1.0"
     vuipeilu "^0.1.6"
 
+vuipeilu@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.npmmirror.com/vuipeilu/-/vuipeilu-0.1.8.tgz#ef2373a00ccb5d76f60112054bbffacfd9cdd926"
+  integrity sha512-Bvq77FhT00Z4dm9bN0P8T0Rx+xf4EURb+eRFI5CWwkpfTqNFsjgx6afLLN/8FMo0hBt3nuFK/eaH6GUyFd4u1A==
+  dependencies:
+    axios "^1.1.3"
+    core-js "^3.6.5"
+    element-ui "^2.15.10"
+    vue "^2.6.11"
+    vue-router "^3.1.3"
+    vuex "^4.1.0"
+    vuipeilu "^0.1.7"
+
 watchpack-chokidar2@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmmirror.com/watchpack-chokidar2/-/watchpack-chokidar2-2.0.1.tgz#38500072ee6ece66f3769936950ea1771be1c957"

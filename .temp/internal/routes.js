@@ -29,14 +29,6 @@ export const routes = [
     },
   },
   {
-    name: "v-b5af2be6",
-    path: "/components/card.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("v-b5af2be6", "v-b5af2be6").then(next)
-    },
-  },
-  {
     path: '*',
     component: GlobalLayout
   }

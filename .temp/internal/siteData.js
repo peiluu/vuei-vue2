@@ -4,7 +4,7 @@
 export const siteData = {
   "title": "",
   "description": "",
-  "base": "/",
+  "base": "vuei-vue2",
   "headTags": [],
   "pages": [
     {
@@ -22,15 +22,6 @@ export const siteData = {
       "relativePath": "componentsDocs/card.md",
       "key": "v-0c91a8d8",
       "path": "/componentsDocs/card.html"
-    },
-    {
-      "frontmatter": {
-        "layout": "v-b5af2be6"
-      },
-      "regularPath": "/components/card.html",
-      "relativePath": "components/card.vue",
-      "key": "v-b5af2be6",
-      "path": "/components/card.html"
     }
   ],
   "themeConfig": {

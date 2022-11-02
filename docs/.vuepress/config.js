@@ -1,4 +1,5 @@
 module.exports = {
+	base: '/vuei-vue2', 
 	themeConfig: {
 		head: [['link', { rel: 'icon', href: `/logo.png` }]],
 		sidebar: [
