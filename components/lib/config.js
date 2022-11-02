@@ -13,4 +13,5 @@
 // });
 
 // console.log(comArr);
+console.lo(2)
 // export default comArr;
