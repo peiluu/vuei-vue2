@@ -11,8 +11,10 @@ const install = Vue => {
 		Vue.component(item.name, item);
 	});
 };
+console.lo(2)
 const API1 = {
 	install,
 };
+
 
 export default API1;
