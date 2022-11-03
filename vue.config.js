@@ -1,13 +1,9 @@
-/**
- * @desption - 配置webpackd打包项,vue会自动加载vue.config.js，将里面你的配置作用在打包的时候
- */
-
 const path = require('path');
 
 /**
  * @desption - 配置scss变量全局引入
  * @param - 自动化导入样式文件 ( 用于颜色、变量、 mixin 等 ) ，可以使用 style-resources-loader
- *  */
+ */
 function addStyleResource(rule) {
 	rule
 		.use('style-resource')
@@ -17,6 +13,10 @@ function addStyleResource(rule) {
 		});
 }
 
+/**
+ * @desption - 配置webpackd打包项,vue会自动加载vue.config.js，将里面你的配置作用在打包的时候
+ *
+ */
 module.exports = {
 	// 页面配置
 	pages: {

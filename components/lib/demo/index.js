@@ -11,5 +11,4 @@ demo.install = Vue => {
 	Vue.component(demo.name, demo);
 };
 
-// console.log(comArr);
 export default demo;

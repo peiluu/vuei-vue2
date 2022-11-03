@@ -1,14 +1,14 @@
 <template>
 	<div class="main-page page-home">
 		<!-- <card /> -->
-		<div class="box">这里是主页</div>
+		<button class="box" @click="changeData">获取数据</button>
 	</div>
 </template>
 
 <script>
 /* eslint-disable no-unused-vars */
 
-import { post, get, customePost } from '@/utils/request.js';
+// import { post, get, customePost } from '@/utils/request.js';
 import store from '@/store';
 export default {
 	name: 'home',
@@ -22,17 +22,31 @@ export default {
 	},
 	methods: {
 		getData() {
-			customePost({
-				method: 'post',
-				url: '/fxfx/deleteCollection',
-				params: { name: 1 },
+			// commit 触发mutations
+			this.$store.commit('app/saveApps', {
+				width: 100,
+				age: 11,
 			});
-				get({
-					url: '/api/login/2',
-				});
+
+			// dispatch 触发actions
+			this.$store.dispatch('app/updateApps', {
+				width: 100,
+				sex: 'M'
+			});
+			// customePost({
+			// 	method: 'post',
+			// 	url: '/fxfx/deleteCollection',
+			// 	params: { name: 1 },
+			// });
+			// get({
+			// 	url: '/api/login/2',
+			// });
 			// post({
 			// 	url: '/api/login/2',
 			// });
+		},
+		changeData() {
+			console.log(this.$store.state);
 		},
 	},
 };
@@ -40,8 +54,5 @@ export default {
 
 <style lang="scss">
 .page-home {
-	.box {
-		@include circle;
-	}
 }
 </style>

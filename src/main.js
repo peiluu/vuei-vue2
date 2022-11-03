@@ -13,12 +13,12 @@ import App from './App.vue';
 // import '../components/css/demo.scss';
 // import card from '../components/lib/card/index.js';
 
-// Vue.use(card);
-// 调用自定义组件库
-// import 'vuipeilu/componentsdist/css/index.css';
-// import VuiPeilu from 'vuipeilu'
 
-// Vue.use(VuiPeilu);
+// 调用自定义组件库
+import 'vuipeilu/componentsdist/css/index.css';
+import VuiPeilu from 'vuipeilu'
+
+Vue.use(VuiPeilu);
 
 // comArr.forEach(item => {
 // 	Vue.use(item);

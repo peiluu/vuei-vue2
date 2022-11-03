@@ -10,21 +10,15 @@ export default {
 	name: 'home',
 	components: {},
 	data() {
-		return {};
+		return {
+			a:1
+		};
 	},
 	mounted() {
-		this.getData();
 		// console.log(request);
-
+		console.log('--this', this);
 	},
-	methods: {
-		getData() {
-			post({
-				url: '/api/login',
-			});
-			// get();
-		},
-	},
+	methods: {},
 };
 </script>
 

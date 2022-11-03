@@ -3,19 +3,25 @@
 export default {
 	namespaced: true,
 	state: {
-		apps: {},
+		apps: {
+			data: {}
+		},
+		width: 0,
 	},
 	mutations: {
-		save(state, param) {
-			return {
-				...state,
-				...param,
+		// store 中的状态是响应式的， Mutation 需遵守 Vue 的响应规则、
+		// 无法s更新整个响应式对象，只能更新
+		saveApps(state, params) {
+			state.apps = {
+				...state.apps,
+				...params,
 			};
+			console.log(state);
 		},
 	},
 	actions: {
-		updateStore(context, param) {
-			context.commit('save', param);
+		updateApps(context, params) {
+			context.commit('saveApps', params);
 		},
 	},
 	getters: {
