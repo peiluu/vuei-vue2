@@ -5,39 +5,32 @@ import 'element-ui/lib/theme-chalk/index.css';
 import ElementUI from 'element-ui';
 
 Vue.use(ElementUI);
-import router from '@/router/index.js';
-// import store from '@/store/index.js';
+import router from '@/router';
+import store from '@/store';
+
+import '@/styles/common.scss'; // global css
+import App from './App.vue';
 // import '../components/css/demo.scss';
 // import card from '../components/lib/card/index.js';
 
 // Vue.use(card);
 // 调用自定义组件库
-import 'vuipeilu/componentsdist/css/index.css';
-import VuiPeilu from 'vuipeilu'
-// console.log(VuiPeilu);
-console.log(ElementUI);
+// import 'vuipeilu/componentsdist/css/index.css';
+// import VuiPeilu from 'vuipeilu'
 
-Vue.use(VuiPeilu);
-
-import { demo } from 'vuipeilu';
-
-Vue.component(demo);
+// Vue.use(VuiPeilu);
 
 // comArr.forEach(item => {
 // 	Vue.use(item);
 // })
 
-import '@/styles/common.scss'; // global css
-import App from './App.vue';
 
-Vue.config.productionTip = false;
 
 new Vue({
 	el: '#app',
 	router,
-	// store,
-	// i18n,
+	store,
 	// template: '<App/>',
-	// components: { App }
+	// components: { App },
 	render: h => h(App),
 });

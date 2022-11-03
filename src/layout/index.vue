@@ -53,7 +53,7 @@ export default {
 }
 .wrapper-container{
 	width: 100%;
-	background: $bgColor;
+	// background: $bgColor;
 	
 }
 .container-main{

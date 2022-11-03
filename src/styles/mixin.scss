@@ -1,7 +1,7 @@
 // 定义全局变量和mixin等
 // webpack配置自动导入，无需在页面中手动添加，直接使用即可
 
-$bgColor: '#E9ECF0';
+$bgColor: '#ccc';
 
 @mixin clearfix {
 	&:after {

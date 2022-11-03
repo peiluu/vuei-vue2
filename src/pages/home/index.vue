@@ -1,7 +1,6 @@
 <template>
 	<div class="main-page page-home">
-		<card />
-
+		<!-- <card /> -->
 		<div class="box">这里是主页</div>
 	</div>
 </template>
@@ -9,24 +8,31 @@
 <script>
 /* eslint-disable no-unused-vars */
 
-import { post } from '@/utils/request.js';
-import { demo } from 'vuipeilu';
+import { post, get, customePost } from '@/utils/request.js';
+import store from '@/store';
 export default {
 	name: 'home',
 	components: {},
 	data() {
 		return {};
 	},
+	beforeMount() {},
 	mounted() {
-		// this.getData();
-		// console.log(request);
+		this.getData();
 	},
 	methods: {
 		getData() {
-			post({
-				url: '/api/login',
+			customePost({
+				method: 'post',
+				url: '/fxfx/deleteCollection',
+				params: { name: 1 },
 			});
-			// get();
+				get({
+					url: '/api/login/2',
+				});
+			// post({
+			// 	url: '/api/login/2',
+			// });
 		},
 	},
 };

@@ -16,7 +16,7 @@
   ],
   "license": "ISC",
   "scripts": {
-    "dev": "vue-cli-service serve --port 8000",
+    "dev": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "build:js": "rimraf componentsdist && npm rebuild node-sass && webpack --config ./webpack.components.js",
     "build:css": "npx gulp sass",
@@ -42,6 +42,7 @@
     "@vue/cli-plugin-eslint": "~4.5.19",
     "@vue/cli-service": "~4.5.19",
     "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.3",
     "css-loader": "3.0.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",

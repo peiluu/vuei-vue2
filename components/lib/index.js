@@ -12,7 +12,7 @@ const install = Vue => {
 	});
 };
 
-console.log(1);
+
 const API2 = {
 	install,
 };
