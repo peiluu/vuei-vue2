@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
+const querystring = require('querystringify');
 import config from '@/config/index.js';
 import { Message, MessageBox } from 'element-ui';
 // import store from '../store';
 
 // 创建axios对象
 const service = axios.create({
-	baseURL: config.BASE_API,
+	// baseURL: config.BASE_API // 起到代理的作用
 	timeout: 60000,
 	withCredentials: true,
 });
@@ -14,8 +15,8 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(
 	config => {
+		// 做登录的判断，如果是登录的状态，可以把用户的token传递个后端
 
-		console.log(11)
 		// config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
 		// if (config.method === 'get' || config.method === 'post') {
 		//   config.data = qs.stringify({
@@ -32,14 +33,12 @@ service.interceptors.request.use(
 	}
 );
 
-// respone拦截器
+/*
+ * response拦截器
+ */
 service.interceptors.response.use(
 	response => {
-		/**
-		 * code为非20000是抛错 可结合自己业务进行修改
-		 */
 		const res = response.data;
-
 		if (res.code !== 0 && response.status !== 200) {
 			Message({
 				message: res.message,
@@ -86,9 +85,9 @@ service.interceptors.response.use(
  * @param cb - 回调函数
  * @returns 响应数据
  */
-const get = async ({ url = '' }, cb = () => {}) => {
+const get = async ({ url = '', params }, cb = () => {}) => {
 	try {
-		return await service.get(`${url}`);
+		return await service.get(`${url}?${querystring.stringify(params)}`);
 	} catch (error) {
 		console.error(error);
 	}
@@ -129,7 +128,7 @@ const customePost = async (
 	try {
 		const res = await service({
 			url,
-			method,  // 
+			method, // 默认是get
 			data: params, // post请求，前端给后端传递的参数
 			params, // get请求，前端给后端传递的参数
 		});

@@ -1,3 +1,7 @@
+/**
+ * @desption - 配置webpackd打包项,vue会自动加载vue.config.js，将里面你的配置作用在打包的时候
+ */
+
 const path = require('path');
 
 /**
@@ -23,7 +27,7 @@ module.exports = {
 			// outputDir:'build'
 		},
 	},
-  // 通过链式编程的形式,来修改默认的 webpack 配置
+	// 通过链式编程的形式,来修改默认的 webpack 配置
 	chainWebpack: config => {
 		const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];
 		types.forEach(type =>
@@ -43,16 +47,16 @@ module.exports = {
 		// 代理到 http://localhost:8081/api/info
 		// 真正的接口地址：http://localhost:8081/new/api/info
 		// 浏览器那里看到的是代理后的请求，其实显示的是代理前的请求。
-		// proxy: {
-		// 	'/api': {
-		// 		target: 'http://192.168.28.178:8762', //代理地址，这里设置的地址会代替axios中设置的baseURL。将/api前的域名代理为http://localhost:8081
-		// 		changeOrigin: true, //是否跨域
-		// 		// pathRewrite: { '/api': '/' }, // 重写/api , 这个 /api 已经在 pathRewrite 被替换掉了，接口就变成404
-		// 	},
-		// 	'/fxfx': {
-		// 		target: 'http://192.168.28.178:8762',
-		// 		changeOrigin: true, //是否跨域
-		// 	},
-		// },
+		proxy: {
+			'/api': {
+				target: 'http://192.168.28.178:8762', //代理地址，这里设置的地址会代替axios中设置的baseURL。将/api前的域名代理为http://localhost:8081
+				changeOrigin: true, //是否跨域
+				// pathRewrite: { '/api': '/' }, // 重写/api , 这个 /api 已经在 pathRewrite 被替换掉了，接口就变成404
+			},
+			'/fxfx': {
+				target: 'http://192.168.28.178:8762',
+				changeOrigin: true, //是否跨域
+			},
+		},
 	},
 };
