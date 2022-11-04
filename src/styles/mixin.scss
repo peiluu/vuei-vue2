@@ -3,6 +3,7 @@
 
 $bgColor: '#ccc';
 
+
 @mixin clearfix {
 	&:after {
 		content: '';
@@ -11,6 +12,7 @@ $bgColor: '#ccc';
 	}
 }
 
+// 修改滚动轴默认样式
 @mixin scrollBar {
 	&::-webkit-scrollbar-track-piece {
 		border-radius: 20px;
@@ -32,9 +34,6 @@ $bgColor: '#ccc';
 
 @mixin circle {
 	padding: 10px;
-  border-radius: 50%;
-  border: 1px solid red;
+	border-radius: 50%;
+	border: 1px solid red;
 }
-
-
-

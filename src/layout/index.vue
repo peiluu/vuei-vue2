@@ -1,9 +1,7 @@
 <template>
 	<div class="app-wrapper">
-		<side-bar class="wrapper-sidebar"></side-bar>
+		<side-bar />
 		<div class="wrapper-container">
-			<!--<navbar></navbar>
-      <tags-view></tags-view>-->
 			<Header />
 			<el-card class="container-main">
 				<router-view></router-view>
@@ -42,7 +40,6 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-
 // $bgColor: '#E9ECF0';
 .app-wrapper {
 	display: flex;
@@ -51,12 +48,10 @@ export default {
 	height: 100%;
 	width: 100%;
 }
-.wrapper-container{
-	width: 100%;
-	// background: $bgColor;
-	
+.wrapper-container {
+	flex: 1;
 }
-.container-main{
+.container-main {
 	margin: 16px;
 }
 .drawer-bg {
