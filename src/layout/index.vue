@@ -3,8 +3,13 @@
 		<side-bar />
 		<div class="wrapper-container">
 			<Header />
+			<!-- app-mina -->
 			<el-card class="container-main">
-				<router-view></router-view>
+				<transition>
+					<keep-alive :include="cachedViews">
+						<router-view :key="key"></router-view>
+					</keep-alive>
+				</transition>
 			</el-card>
 		</div>
 	</div>
@@ -24,7 +29,14 @@ export default {
 		Header,
 	},
 
-	computed: {},
+	computed: {
+		cachedViews() {
+			return this.$store.state.app.cachedViews;
+		},
+		key() {
+			return this.$route.fullPath;
+		},
+	},
 	methods: {
 		// handleClickOutside() {
 		// 	this.$store.dispatch('CloseSideBar', { withoutAnimation: false });

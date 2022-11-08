@@ -15,7 +15,7 @@
 						<el-submenu :index="`item-${index}`" :key="index">
 							<template slot="title">
 								<i :class="item.iconClass"></i>
-								<span>{{ item.label }}</span>
+								<span>{{ item.title }}</span>
 							</template>
 
 							<!-- 循环二级菜单 -->
@@ -27,7 +27,7 @@
 									<el-submenu :index="`subItem-${subIndex}`" :key="subIndex">
 										<template slot="title">
 											<i :class="subItem.iconClass"></i>
-											<span>{{ subItem.label }}</span>
+											<span>{{ subItem.title }}</span>
 										</template>
 
 										<!-- 循环三级菜单 -->
@@ -36,46 +36,47 @@
 											v-for="(itm, itx) in subItem.children"
 											:key="itx"
 										>
-											<!-- <router-link :to="itm.path"> {{ itm.label }}</router-link> -->
-											{{ itm.label }}
+											<!-- <router-link :to="itm.path"> {{ itm.title }}</router-link> -->
+											{{ itm.title }}
 										</el-menu-item>
 									</el-submenu>
 								</template>
 								<!-- 如果二级菜单下没有三级菜单，直接跳转路由 -->
 								<el-menu-item @click="goToPage(subItem)" v-else :key="subIndex">
-									{{ subItem.label }}
+									{{ subItem.title }}
 								</el-menu-item>
 							</template>
 						</el-submenu>
 					</template>
 
 					<el-menu-item @click="goToPage(item)" v-else :key="index">
-						{{ item.label }}
+						{{ item.title }}
 					</el-menu-item>
 				</template>
 			</el-menu>
 		</el-col>
 	</el-row>
 </template>
+<!-- eslint-disable no-unused-vars -->
+<!-- eslint-disable-next-line no-unused-vars -->
 
 <script>
 import { defalutRoutes } from '@/router';
 
 export default {
-	label: 'SideBar',
+	title: 'SideBar',
 	methods: {
 		handleOpen(key, keyPath) {
-			console.log(key, keyPath);
+			// console.log(key, keyPath);
 		},
 		handleClose(key, keyPath) {
-			console.log(key, keyPath);
+			// console.log(key, keyPath);
 		},
 
 		goToPage(item) {
 			// 防止跳转相同的路由
 			if (item.path === this.$route.path) return;
 			this.$router.push(item.path);
-			console.log(item);
 		},
 	},
 	computed: {

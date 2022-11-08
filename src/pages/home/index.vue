@@ -101,7 +101,7 @@ export default {
 			// });
 			const obj = {};
 			this.defineReactive(obj, 'width', 100);
-			console.log(obj);
+			
 		},
 		changeRoute() {},
 	},

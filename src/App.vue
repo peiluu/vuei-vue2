@@ -4,8 +4,12 @@
 		<!--登入动画-->
 		<transition name="rotate-fall">
 			<!-- 不需要layout组件包裹的页面 -->
-			<template v-if="notComponentRouter.includes(routerPath)">
-				<router-view></router-view>
+			<template v-if="isComponentRouter">
+				<transition>
+					<keep-alive :include="cachedViews">
+						<router-view :key="key"></router-view>
+					</keep-alive>
+				</transition>
 			</template>
 
 			<template v-else>
@@ -29,11 +33,15 @@ export default {
 	},
 	mounted() {},
 	computed: {
-		routerPath() {
-			return this.$route.path;
+		cachedViews() {
+			return this.$store.state.app.cachedViews;
 		},
-		notComponentRouter() {
-			return notComponentRouter;
+		key() {
+			return this.$route.fullPath;
+		},
+		// 是否是组件路由，显示在layout里面
+		isComponentRouter() {
+			return notComponentRouter.includes(this.$route.path);
 		},
 	},
 };

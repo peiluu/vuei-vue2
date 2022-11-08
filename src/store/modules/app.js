@@ -4,7 +4,8 @@ export default {
 	namespaced: true,
 	state: {
 		apps: {
-			data: {}
+			data: {},
+			cachedViews: ['/vuerouter'],
 		},
 		width: 0,
 	},
@@ -17,7 +18,6 @@ export default {
 				...state.apps,
 				...params,
 			};
-			console.log(state);
 		},
 	},
 	actions: {

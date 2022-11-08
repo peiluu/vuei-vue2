@@ -1,30 +1,49 @@
 <template>
 	<div class="page-vuerouter">
-		<card />
-	
+		<el-button @click="changeCom">切换组件</el-button>
+
+		<message v-if="showMeaage" />
+		<keep-alive v-else>
+			<news />
+		</keep-alive>
+
+		<el-input v-model="message" />
 	</div>
 </template>
-
+<!-- eslint-disable no-unused-vars -->
 <script>
-/* eslint-disable no-unused-vars */
+// import new from './components/new.vue';
+import message from './components/message.vue';
+import news from './components/news.vue';
+
 export default {
 	name: 'vuerouter',
-	components: {},
+	components: {
+		message,
+		news,
+	},
 	data() {
-		return {};
+		return {
+			showMeaage: true,
+			message: '',
+		};
 	},
 	props: [],
 	beforeMount() {},
-	mounted() {
-		console.log(this)
-
+	mounted() {},
+	// 进入时守卫，通过路由规则，进入该组件时被调用，
+	beforeRouteEnter(to, form, next) {
+		console.log(to)
+		next();
 	},
+	// 离开时守卫，通过路由规则，离开该组件时被调用
+	beforeRouteLeave(to, form, next) {
+		next();
+	},
+
 	methods: {
-		
-		changeData() {
-			const obj = {};
-			this.defineReactive(obj, 'width', 100);
-			console.log(obj);
+		changeCom() {
+			this.showMeaage = !this.showMeaage;
 		},
 	},
 };
