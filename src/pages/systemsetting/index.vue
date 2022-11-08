@@ -1,5 +1,5 @@
 <template>
-	<div class="p-page">这里是系统设置页面</div>
+	<div class="page-systemsetting">这里是系统设置页面</div>
 </template>
 
 <script>
@@ -7,7 +7,7 @@
 
 import { post } from '@/utils/request.js';
 export default {
-	name: 'home',
+	name: 'systemsetting',
 	components: {},
 	data() {
 		return {
@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss">
 $bG: 'red';
-.page-home {
+.page-systemsetting {
 	.box {
 		color: $bG;
 		// @include box

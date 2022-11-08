@@ -5,9 +5,6 @@
 			<Header />
 			<el-card class="container-main">
 				<router-view></router-view>
-				<!-- <app-main ref="appMain">
-				
-			</app-main> -->
 			</el-card>
 		</div>
 	</div>
@@ -40,27 +37,20 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-// $bgColor: '#E9ECF0';
 .app-wrapper {
 	display: flex;
 	@include clearfix;
 	position: relative;
-	height: 100%;
-	width: 100%;
-}
-.wrapper-container {
-	flex: 1;
-}
-.container-main {
-	margin: 16px;
-}
-.drawer-bg {
-	background: #000;
-	opacity: 0.3;
-	width: 100%;
-	top: 0;
-	height: 100%;
-	position: absolute;
-	z-index: 999;
+	height: 100vh;
+
+	.wrapper-container {
+		background: $bgColor;
+		flex: 1;
+		height: 100vh;
+	}
+	.container-main {
+		margin: 16px;
+		height: 100%;
+	}
 }
 </style>

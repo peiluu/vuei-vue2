@@ -13,9 +13,10 @@ import App from './App.vue';
 // import '../components/css/demo.scss';
 // import card from '../components/lib/card/index.js';
 
+
 // 调用自定义组件库
 import 'vuipeilu/componentsdist/css/index.css';
-import VuiPeilu from 'vuipeilu';
+import VuiPeilu from 'vuipeilu'
 
 Vue.use(VuiPeilu);
 
@@ -23,9 +24,11 @@ Vue.use(VuiPeilu);
 // 	Vue.use(item);
 // })
 
+
+
 new Vue({
 	el: '#app',
-	router,
+	router, // 配置路由器
 	store,
 	// template: '<App/>',
 	// components: { App },

@@ -1,15 +1,26 @@
 <template>
-	<div class="main-page page-home">
+	<div class="page-home">
 		<!-- <card /> -->
 		<button class="box" @click="changeData">获取数据</button>
+		<router-link
+			:to="{
+				path: 'vuerouter',
+				params: {
+					id: 111,
+					title: '11111',
+				},
+				query: {
+					id: 111,
+					title: '11111',
+				},
+			}"
+			>切换路由</router-link
+		>
 	</div>
 </template>
 
 <script>
 /* eslint-disable no-unused-vars */
-
-// import { post, get, customePost } from '@/utils/request.js';
-import store from '@/store';
 export default {
 	name: 'home',
 	components: {},
@@ -84,10 +95,15 @@ export default {
 			// });
 		},
 		changeData() {
+			// this.$router.push({
+			// 	path: '/vuerouter?name=11',
+			// 	params: { id: 1 },
+			// });
 			const obj = {};
 			this.defineReactive(obj, 'width', 100);
 			console.log(obj);
 		},
+		changeRoute() {},
 	},
 };
 </script>
