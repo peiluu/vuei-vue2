@@ -7,6 +7,8 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 import router from '@/router';
 import store from '@/store';
+// 自定义插件
+import plugin from '@/plugin/index'
 
 import '@/styles/common.scss'; // global css
 import App from './App.vue';
@@ -18,6 +20,8 @@ import 'vuipeilu/componentsdist/css/index.css';
 import VuiPeilu from 'vuipeilu';
 
 Vue.use(VuiPeilu);
+// Vue.use调用文件，   
+Vue.use(plugin, { store })
 
 // comArr.forEach(item => {
 // 	Vue.use(item);

@@ -61,7 +61,7 @@ export default {
 		height: 100vh;
 	}
 	.container-main {
-		margin: 16px;
+		margin: 12px;
 		height: 100%;
 	}
 }

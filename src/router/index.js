@@ -6,6 +6,7 @@ import Router from 'vue-router';
 // 插件应用需要使用Vue.use方法应用
 Vue.use(Router);
 
+import layout from '@/layout/index.vue';
 /**
  * @desption 配置非组件式路由，里面的path所对应的页面不会被layout组件包裹
  */
@@ -23,8 +24,9 @@ export const defalutRoutes = [
 		name: 'shouye',
 		iconClass: 'el-icon-location',
 		// ？？ 为什么父级不用component会无法加载子级路由
-		component: () => import('@/pages/home/index.vue'),
+		// component: () => import('@/pages/home/index.vue'),
 
+		component: layout,
 		// props的第一种写法，值为对象，该对象中的所有key - value都会以props的形式传到该组件
 		// props: {
 		// 	type: 1,
@@ -49,7 +51,6 @@ export const defalutRoutes = [
 		},
 		// 独享路由守卫（独享路由守卫只有一个，没有前置后置），单独为某个路由配置
 		beforeEnter: (to, from, next) => {},
-
 		children: [
 			{
 				// 子级路由，path不需要带斜杠，對那個
@@ -78,26 +79,15 @@ export const defalutRoutes = [
 				path: '/systemsetting',
 				title: '下层系统设置',
 				// component: () => import('@/pages/systemsetting/index.vue'),
-				children: [
-					{
-						path: '/systemsetting',
-						title: '下层系统设置',
-						meta: {
-							isAuth: true,
-							title: '下层系统设置',
-						},
-						props: true,
-						component: () => import('@/pages/systemsetting/index.vue'),
-						children: [],
-					},
-				],
 			},
 		],
 	},
 	{
 		path: '/vue',
 		title: 'vue学习',
-		component: () => import('@/pages/vuerouter/index.vue'),
+		component: layout,
+		// 嵌套路由配置, 用layout组件包裹内置组件
+
 		children: [
 			{
 				path: '/vue/vuerouter',
@@ -111,9 +101,23 @@ export const defalutRoutes = [
 				component: () => import('@/pages/vuerouter/index.vue'),
 				children: [],
 			},
+
 			{
-				path: '/vue/defineproperty',
-				title: 'Object.defineproperty',
+				path: 'directive',
+				name: 'zhiling',
+				title: 'vue指令',
+				props: true,
+				meta: {
+					isAuth: false,
+					title: 'vue指令',
+				},
+				component: () => import('@/pages/directive/index.vue'),
+				children: [],
+			},
+
+			{
+				path: 'defineproperty',
+				title: 'defineproperty',
 				component: () => import('@/pages/defineproperty/index.vue'),
 				meta: {
 					isAuth: false,
