@@ -54,7 +54,7 @@ export const defalutRoutes = [
 		children: [
 			{
 				// 子级路由，path不需要带斜杠，對那個
-				path: '/home/home',
+				path: '/home',
 				title: '二级首页',
 				component: () => import('@/pages/home/index.vue'),
 				meta: {
@@ -125,6 +125,16 @@ export const defalutRoutes = [
 				},
 				children: [],
 			},
+			// {
+			// 	path: 'vuecomponent',
+			// 	title: 'vuecomponent',
+			// 	component: () => import('@/pages/vuecomponent/index.vue'),
+			// 	meta: {
+			// 		isAuth: false,
+			// 		title: '组件',
+			// 	},
+			// 	children: [],
+			// },
 		],
 	},
 ];

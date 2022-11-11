@@ -3,6 +3,7 @@
   "version": "0.1.9",
   "description": "vui-自定义组件库",
   "main": "componentsdist/index.umd.js",
+
   "keywords": [
     "vui组件库",
     "vue",

@@ -14,8 +14,8 @@ function addStyleResource(rule) {
 }
 
 /**
- * @desption - 配置webpackd打包项,vue会自动加载vue.config.js，将里面你的配置作用在打包的时候
- *
+ * @desption - 配置webpackd打包项,vue会自动加载vue.config.js，将里面你的配置作用在打包的时候，调整脚手架的工工作模式
+ * 脚手架会把你的配置和webpack中已经写好的默认配置进行合并，以你的为主，不破坏核心配置
  */
 module.exports = {
 	// 页面配置
@@ -40,7 +40,7 @@ module.exports = {
 		// 本地服务器配置(npm run serve)
 		port: 8888, // 端口
 		host: 'localhost', // 域名
-		https: true, // 是否开启https
+		// https: true, // 是否开启https
 		open: true, // 是否在开启服务器后自动打开浏览器访问该服务器
 
 		// 访问 ： http://localhost:8080/api/info

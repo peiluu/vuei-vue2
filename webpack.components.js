@@ -30,6 +30,7 @@ async function makeList(dirPath, list) {
 
 makeList('components', list);
 
+// webpack 配置
 module.exports = {
 	entry: list,
 	output: {
