@@ -68,7 +68,7 @@ export default {
 		changeData() {
 			const obj = {};
 			this.defineReactive(obj, 'width', 100);
-			console.log(obj);
+
 		},
 	},
 };

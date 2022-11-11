@@ -12,8 +12,6 @@
  */
 
 import Vue from 'vue';
-
-//
 // import Vue from 'vue/dist/vue';
 
 import 'element-ui/lib/theme-chalk/index.css';
@@ -22,8 +20,11 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 import router from '@/router';
 import store from '@/store';
-// 自定义插件
+
+// 引入自定义插件
 import plugin from '@/plugin/index';
+// Vue.use调用insatll方法，应用插件
+Vue.use(plugin, { store });
 
 import '@/styles/common.scss'; // global css
 import App from './App.vue';
@@ -35,12 +36,6 @@ import 'vuipeilu/componentsdist/css/index.css';
 import VuiPeilu from 'vuipeilu';
 
 Vue.use(VuiPeilu);
-// Vue.use调用文件，
-Vue.use(plugin, { store });
-
-// comArr.forEach(item => {
-// 	Vue.use(item);
-// })
 
 new Vue({
 	el: '#app',

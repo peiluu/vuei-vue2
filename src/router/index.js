@@ -125,16 +125,16 @@ export const defalutRoutes = [
 				},
 				children: [],
 			},
-			// {
-			// 	path: 'vuecomponent',
-			// 	title: 'vuecomponent',
-			// 	component: () => import('@/pages/vuecomponent/index.vue'),
-			// 	meta: {
-			// 		isAuth: false,
-			// 		title: '组件',
-			// 	},
-			// 	children: [],
-			// },
+			{
+				path: 'vuecomponent',
+				title: 'vuecomponent',
+				component: () => import('@/pages/vuecomponent/index.vue'),
+				meta: {
+					isAuth: false,
+					title: '组件',
+				},
+				children: [],
+			},
 		],
 	},
 ];

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-// 自定义全局方法
+
 export default {
 	install(Vue, options) {
 		const store = options.store;
