@@ -5,7 +5,6 @@
  * 1. vue.js 和vue.runtime.xxx.js的区别
  * （1）vue.js是完整版的vue，包含核心功能 + 模板解析器（template）
  * （2）vue.runtime.xxx.js是运行版的vue（打包后体积很小），只包含核心功能，没有模板解析器
- * 
  
  * 2. 因为vue.runtime.xxx.js 没有模板解析器，所以不能使用template配置项，徐亚
  		需要使用render函数接收到的creatElement函数去指定具体内容
@@ -37,18 +36,30 @@ import VuiPeilu from 'vuipeilu';
 
 Vue.use(VuiPeilu);
 
+const demo = Vue.extend({});
+Vue.prototype.x = demo;
+console.log(new demo());
+
 new Vue({
 	el: '#app',
 	router, // 配置路由器
 	store,
-	// components: { App },
-	//
-
 	// template: `<div>1</div>`
-	// 如果引入的是一个不能解析template的vue, 需要借助render函数将app组件放入容器中
-	// render函数接受一个creatElement函数，创建html元素，简化之后 => render: h => h(App)
-	// render: creatElement => {
-	// 	return c(App);
-	// },
+	/**
+	* @desption render函数接受一个creatElement函数，创建html元素，简化之后 => render: h => h(App)
+		如果引入的是一个不能解析template的vue, 需要借助render函数将app组件放入容器中 
+		render: creatElement => {
+			return c(App);
+		}
+	*/
 	render: h => h(App),
+	beforeCreate() {
+		/**
+		 * 安装全局事件总线（bus - 总线），把vm对象添加到Vue原型对象 就形成全局事件总线（vm）
+		 	 全局所有的Vc和Vm都能访问 Vue.prototype.$bus = Vm
+		 * 一个重要的内置关系  VueComponet.prototype.__proto__ = Vue.prototype
+			  Creat.prototype.__proto__ === Object.prototype
+		 */
+		Vue.prototype.$bus = this;
+	},
 });

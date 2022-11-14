@@ -30,10 +30,13 @@ export default {
 	},
 	props: [],
 	beforeMount() {},
-	mounted() {},
+	mounted() {
+
+
+	},
 	// 进入时守卫，通过路由规则，进入该组件时被调用，
 	beforeRouteEnter(to, form, next) {
-		console.log(to)
+		// console.log(to);
 		next();
 	},
 	// 离开时守卫，通过路由规则，离开该组件时被调用

@@ -3,7 +3,6 @@
   "version": "0.1.9",
   "description": "vui-自定义组件库",
   "main": "componentsdist/index.umd.js",
-
   "keywords": [
     "vui组件库",
     "vue",
@@ -32,6 +31,7 @@
     "axios": "^1.1.3",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.10",
+    "pubsub-js": "^1.9.4",
     "querystringify": "^2.2.0",
     "vue": "^2.6.11",
     "vue-router": "^3.1.3",
