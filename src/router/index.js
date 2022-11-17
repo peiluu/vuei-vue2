@@ -126,6 +126,16 @@ export const defalutRoutes = [
 				children: [],
 			},
 			{
+				path: 'vuex',
+				title: 'vuex',
+				component: () => import('@/pages/vuex/index.vue'),
+				meta: {
+					isAuth: false,
+					title: 'vuex',
+				},
+				children: [],
+			},
+			{
 				path: 'vuecomponent',
 				title: 'vuecomponent',
 				component: () => import('@/pages/vuecomponent/index.vue'),
@@ -136,6 +146,7 @@ export const defalutRoutes = [
 				children: [],
 			},
 		],
+		
 	},
 ];
 
@@ -147,13 +158,14 @@ const router = new Router({
 });
 
 /**
- * @desption 全局前置路由守卫 => 初始化的时候被调用 | 每一次路由切换之前都会触发，可以阻止路由的切换
- * @desption 一般应用于权限系统控制
+ * @desption 全局前置路由守卫 => 初始化的时候被调用 | 每一次路由切换之前都会触发，可以 监听|阻止 路由的切换
+ * @desption 一般应用于权限系统控制，每次路由的变化都去重新获取权限
  * @param {to} 来源路由
  * @param {from} 去往哪里
  * @param {next} 放行 | 满足判断条件就继续往下走
  */
 router.beforeEach((to, from, next) => {
+
 	next();
 	// console.log('to', to);
 	// console.log('from', from);

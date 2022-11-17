@@ -37,7 +37,7 @@ Vue.directive('big-in', {
 	},
 });
 Vue.directive('big-out', (el, binding) => {
-	console.log(binding);
+	// console.log(binding);
 });
 
 export default {
@@ -68,7 +68,7 @@ export default {
 		// focus函数何时会被调用:(1) 指令与元素成功绑定时（初始化）（2）指令所在的模板被重新解析时
 		concat(el, binding) {
 			// binding.modifiers = { bar: true, foo: true }
-			console.log('---', binding);
+			// console.log('---', binding);
 			el.style.background = '#fff';
 		},
 		'big-number'(el, binding) {},

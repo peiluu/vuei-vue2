@@ -7,7 +7,7 @@ import { Message, MessageBox } from 'element-ui';
 
 // 创建axios对象
 const service = axios.create({
-	// baseURL: config.BASE_API // 起到代理的作用
+	// baseURL: config.BASE_API, // 起到代理的作用
 	timeout: 60000,
 	withCredentials: true,
 });
@@ -26,6 +26,8 @@ service.interceptors.request.use(
 		// if (store.getters.token) {
 		//   config.headers['X-Token'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
 		// }
+		// 在请求发送之前做一些处理
+
 		return config;
 	},
 	error => {
@@ -79,10 +81,10 @@ service.interceptors.response.use(
 );
 
 /**
- * @desption - axios.get方法
- * @param  url - 接口地址
- * @param params - 访问参数
- * @param cb - 回调函数
+ * @desption axios.get方法
+ * @param  url 接口地址
+ * @param params 访问参数
+ * @param cb 回调函数
  * @returns 响应数据
  */
 const get = async ({ url = '', params }, cb = () => {}) => {
@@ -94,10 +96,10 @@ const get = async ({ url = '', params }, cb = () => {}) => {
 };
 
 /**
- * @desption - axios.post方法
- * @param  url - 接口地址
- * @param params - 访问参数
- * @param cb - 回调函数
+ * @desption axios.post方法
+ * @param  url 接口地址
+ * @param params 访问参数
+ * @param cb 回调函数
  * @returns 响应数据
  */
 const post = async ({ url = '', params = {} }, cb = () => {}) => {
@@ -115,10 +117,10 @@ const post = async ({ url = '', params = {} }, cb = () => {}) => {
 };
 
 /**
- * @desption - axios.post方法
- * @param  url - 接口地址
- * @param params - 访问参数
- * @param cb - 回调函数
+ * @desption axios.post方法
+ * @param  url 接口地址
+ * @param params 访问参数
+ * @param cb 回调函数
  * @returns 响应数据
  */
 const customePost = async (
@@ -141,4 +143,16 @@ const customePost = async (
 	}
 };
 
-export { get, post, customePost };
+/**
+ * @desption 获取一段随机文本
+ * @returns 响应数据
+ */
+const getSocial = async () => {
+	try {
+		return await axios.get('https://api.uixsj.cn/hitokoto/get?type=social');
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+export { get, post, customePost, getSocial };

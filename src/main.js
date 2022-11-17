@@ -38,7 +38,7 @@ Vue.use(VuiPeilu);
 
 const demo = Vue.extend({});
 Vue.prototype.x = demo;
-console.log(new demo());
+// console.log(new demo());
 
 new Vue({
 	el: '#app',
