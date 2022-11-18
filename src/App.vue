@@ -4,13 +4,13 @@
 		<!--登入动画-->
 		<transition name="rotate-fall">
 			<!-- 不需要layout组件包裹的页面 -->
-			<template>
+			<!-- <template v-if="isComponentRouter"> -->
 				<transition>
 					<keep-alive :include="cachedViews">
 						<router-view :key="key"></router-view>
 					</keep-alive>
 				</transition>
-			</template>
+			<!-- </template> -->
 
 			<!-- <template v-else>
 				<layout></layout>

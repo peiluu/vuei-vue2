@@ -1,6 +1,7 @@
 <template>
 	<div class="page-vuecomponent">
-		<h6>vue组件及其通信相关</h6>
+		<h4>Vue Components</h4>
+ss
 		<!-- 通过props传递事件，子给父传递数据 -->
 		<message :onCall="onCallBack" />
 		<!-- 通过自定义事件，子给父传递数据 -->
@@ -33,7 +34,7 @@ export default {
 	},
 	methods: {
 		onCallBack(data) {
-			console.log('接收子组件数据', data);
+			// console.log('接收子组件数据', data);
 		},
 		publishMsg() {
 			pubsub.publish('subEvent', 666);

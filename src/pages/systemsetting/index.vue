@@ -1,5 +1,8 @@
 <template>
-	<div class="page-systemsetting">这里是系统设置页面</div>
+	<div class="page-systemsetting">
+		<h4>系统设置</h4>
+
+	</div>
 </template>
 
 <script>

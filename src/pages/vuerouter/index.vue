@@ -1,5 +1,7 @@
 <template>
 	<div class="page-vuerouter">
+		<h4>Vue Router</h4>
+
 		<el-button @click="changeCom">切换组件</el-button>
 
 		<message v-if="showMeaage" />

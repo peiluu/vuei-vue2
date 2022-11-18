@@ -10,12 +10,19 @@ import layout from '@/layout/index.vue';
 /**
  * @desption 配置非组件式路由，里面的path所对应的页面不会被layout组件包裹
  */
-export const notComponentRouter = ['/systemsetting'];
+export const notComponentRouter = [];
 
 /**
  * @desption - 自定义路由配置, 配置路由组件
  */
 export const defalutRoutes = [
+	// 配置重定向
+	{
+		path: '/',
+		redirect: '/myhome',
+		isMenu: false,
+	},
+
 	{
 		// 父级路由，path带斜杠
 		path: '/home',
@@ -23,10 +30,12 @@ export const defalutRoutes = [
 		// 命名路由，可以简化编码，用名字替换长路由
 		name: 'shouye',
 		iconClass: 'el-icon-location',
+		isMenu: true,
 		// ？？ 为什么父级不用component会无法加载子级路由
-		// component: () => import('@/pages/home/index.vue'),
 
 		component: layout,
+		// component: () => import('@/pages/home/index.vue'),
+
 		// props的第一种写法，值为对象，该对象中的所有key - value都会以props的形式传到该组件
 		// props: {
 		// 	type: 1,
@@ -50,11 +59,13 @@ export const defalutRoutes = [
 			title: '首页',
 		},
 		// 独享路由守卫（独享路由守卫只有一个，没有前置后置），单独为某个路由配置
-		beforeEnter: (to, from, next) => {},
+		beforeEnter: (to, from, next) => {
+			next();
+		},
 		children: [
 			{
 				// 子级路由，path不需要带斜杠，對那個
-				path: '/home',
+				path: '/myhome',
 				title: '二级首页',
 				component: () => import('@/pages/home/index.vue'),
 				meta: {
@@ -65,32 +76,39 @@ export const defalutRoutes = [
 			},
 		],
 	},
+
 	{
 		path: '/systemsetting',
 		name: 'xitongshezhi',
 		title: '系统设置',
-		component: () => import('@/pages/systemsetting/index.vue'),
+		isMenu: true,
+		component: layout,
+		// component: () => import('@/pages/systemsetting/index.vue'),
 		meta: {
 			isAuth: false,
 			title: '系统设置',
 		},
-		children: [
-			{
-				path: '/systemsetting',
-				title: '下层系统设置',
-				// component: () => import('@/pages/systemsetting/index.vue'),
-			},
-		],
+		// children: [
+		// 	{
+		// 		path: '/systemsetting',
+		// 		title: '下层系统设置',
+		// 		component: () => import('@/pages/systemsetting/index.vue'),
+		// 	},
+		// ],
 	},
 	{
 		path: '/vue',
 		title: 'vue学习',
+		isMenu: true,
 		component: layout,
-		// 嵌套路由配置, 用layout组件包裹内置组件
 
+		/**
+		 *  @desption 嵌套路由配置, 用layout组件包裹内置组件, 要在嵌套的出口中渲染组件，需要在 VueRouter 的参数中使用 children 配置
+		 *
+		 */
 		children: [
 			{
-				path: '/vue/vuerouter',
+				path: '/vuerouter',
 				name: 'luyou',
 				title: 'vue-router',
 				props: true,
@@ -103,7 +121,7 @@ export const defalutRoutes = [
 			},
 
 			{
-				path: 'directive',
+				path: '/directive',
 				name: 'zhiling',
 				title: 'vue指令',
 				props: true,
@@ -116,7 +134,7 @@ export const defalutRoutes = [
 			},
 
 			{
-				path: 'defineproperty',
+				path: '/defineproperty',
 				title: 'defineproperty',
 				component: () => import('@/pages/defineproperty/index.vue'),
 				meta: {
@@ -126,7 +144,7 @@ export const defalutRoutes = [
 				children: [],
 			},
 			{
-				path: 'vuex',
+				path: '/vuex',
 				title: 'vuex',
 				component: () => import('@/pages/vuex/index.vue'),
 				meta: {
@@ -136,7 +154,7 @@ export const defalutRoutes = [
 				children: [],
 			},
 			{
-				path: 'vuecomponent',
+				path: '/vuecomponent',
 				title: 'vuecomponent',
 				component: () => import('@/pages/vuecomponent/index.vue'),
 				meta: {
@@ -146,7 +164,6 @@ export const defalutRoutes = [
 				children: [],
 			},
 		],
-		
 	},
 ];
 
@@ -165,7 +182,6 @@ const router = new Router({
  * @param {next} 放行 | 满足判断条件就继续往下走
  */
 router.beforeEach((to, from, next) => {
-
 	next();
 	// console.log('to', to);
 	// console.log('from', from);

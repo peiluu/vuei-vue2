@@ -39,7 +39,7 @@ Vue.use(VuiPeilu);
 const demo = Vue.extend({});
 Vue.prototype.x = demo;
 // console.log(new demo());
-
+console.log(router)
 new Vue({
 	el: '#app',
 	router, // 配置路由器

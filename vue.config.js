@@ -48,11 +48,11 @@ module.exports = {
 		// 真正的接口地址：http://localhost:8081/new/api/info
 		// 浏览器那里看到的是代理后的请求，其实显示的是代理前的请求。
 		proxy: {
-			// '/api': {
-			// 	target: 'http://192.168.28.178:8762', //代理地址，这里设置的地址会代替axios中设置的baseURL。将/api前的域名代理为http://localhost:8081
-			// 	changeOrigin: true, //是否跨域
-			// 	// pathRewrite: { '/api': '/' }, // 重写/api , 这个 /api 已经在 pathRewrite 被替换掉了，接口就变成404
-			// },
+			'/api': {
+				// target: 'http://192.168.28.178:8762', //代理地址，这里设置的地址会代替axios中设置的baseURL。将/api前的域名代理为http://localhost:8081
+				target: 'https://api.uixsj.cn/hitokoto', 
+				// pathRewrite: { '/api': '/' }, // 重写/api , 这个 /api 已经在 pathRewrite 被替换掉了，接口就变成404
+			},
 			'/fxfx': {
 				target: 'http://192.168.28.178:8762',
 				changeOrigin: true, //是否跨域

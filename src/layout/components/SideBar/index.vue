@@ -11,7 +11,9 @@
 				<!-- 循环一级菜单 -->
 				<template v-for="(item, index) in menuList">
 					<!-- 判断一级菜单下是否有二级菜单 -->
-					<template v-if="item.children && item.children.length > 0">
+					<template
+						v-if="item.children && item.children.length > 0 && item.isMenu"
+					>
 						<el-submenu :index="`item-${index}`" :key="index">
 							<template slot="title">
 								<i :class="item.iconClass"></i>
@@ -48,10 +50,15 @@
 							</template>
 						</el-submenu>
 					</template>
-
-					<el-menu-item @click="goToPage(item)" v-else :key="index">
-						{{ item.title }}
-					</el-menu-item>
+					<template v-else>
+						<el-menu-item
+							@click="goToPage(item)"
+							:key="index"
+							v-if="item.isMenu"
+						>
+							{{ item.title }}
+						</el-menu-item>
+					</template>
 				</template>
 			</el-menu>
 		</el-col>

@@ -1,6 +1,7 @@
 <template>
 	<div class="page-directive">
-		<h6>vue内置指令及自定义指令</h6>
+		<h4>vue内置指令及自定义指令</h4>
+
 		<div>你仍然需要对普通 DOM 元素进行底层操作，这时候就会用到自定义指令。</div>
 		<input v-focus:title="200" />
 		<button v-concat:arg.foo.bar="'expression'">v-concat</button>
@@ -26,7 +27,7 @@ import Vue from 'vue';
 // 全局自定义指令，非必要不定义成全局指令
 Vue.directive('big-in', {
 	bind(el) {
-		console.log(1, el);
+		// console.log(1, el);
 	},
 	inserted(el) {
 		// console.log(2, el);

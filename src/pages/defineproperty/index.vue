@@ -1,5 +1,7 @@
 <template>
 	<div class="page-defineproperty">
+		<h4>Vue Defineproperty</h4>
+
 		<el-button class="box" @click="changeData">获取数据</el-button>
 	</div>
 </template>

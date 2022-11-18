@@ -1,6 +1,7 @@
 <template>
 	<div class="page-vuex">
-		<h4>Vuex模块化</h4>
+		<h4>Vuex</h4>
+		
 		<div class="line">
 			<h5>num：{{ num }}</h5>
 			<el-button size="small" @click="sub({ num: 1 })">sub</el-button>
@@ -18,7 +19,7 @@
 /* eslint-disable no-unused-vars */
 // mapState映射，自动生成代码，解析
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';
-import { getSocial } from '@/utils/request';
+import { getSocial, getSocial1 } from '@/utils/request';
 export default {
 	name: 'vuex',
 	components: {},
@@ -29,7 +30,7 @@ export default {
 	},
 	beforeMount() {},
 	mounted() {
-		this.getSocial();
+		// this.getSocial();
 	},
 	computed: {
 		// 借助mapState生成计算属性，从state中读取数据，对象写法
@@ -73,8 +74,14 @@ export default {
 		...mapActions('app', ['updateApps']),
 
 		async getSocial() {
-			const res = await getSocial();
-			this.tipMsg = res.data;
+			// 在此函数中调用异步请求，因此此函数将永远无法同步返回此异步请求的结果，还需要经过一层异步处理
+			// const axios =  getSocial(); 返回的是promise
+			//  返回的是data
+			const axios = await getSocial();
+			const service = await getSocial1();
+			console.log('service', service);
+			console.log('axios', axios);
+			this.tipMsg = axios.data;
 		},
 	},
 };
