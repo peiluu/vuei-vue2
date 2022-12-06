@@ -144,6 +144,28 @@ export const defalutRoutes = [
 				children: [],
 			},
 			{
+				path: '/observer',
+				title: '数据代理',
+				component: () => import('@/pages/observer/index.vue'),
+				meta: {
+					isAuth: false,
+					title: '组件',
+				},
+				children: [],
+			},
+			{
+				path: '/dataResponsive',
+				title: '数据响应式原理',
+				component: () => import('@/pages/dataResponsive/index.vue'),
+				meta: {
+					isAuth: false,
+					title: '组件',
+				},
+				children: [],
+			},
+
+			
+			{
 				path: '/vuex',
 				title: 'vuex',
 				component: () => import('@/pages/vuex/index.vue'),
