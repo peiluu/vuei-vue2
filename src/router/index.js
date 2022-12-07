@@ -163,8 +163,6 @@ export const defalutRoutes = [
 				},
 				children: [],
 			},
-
-			
 			{
 				path: '/vuex',
 				title: 'vuex',

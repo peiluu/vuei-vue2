@@ -26,16 +26,6 @@
 			<el-button class="box" @click="setHijack">设置数据劫持</el-button>
 			<!-- <el-button class="box" @click="setVueProxy">vue中设置数据代理</el-button> -->
 		</div>
-		<div>
-			<el-button class="box" @click="changeData">获取数据</el-button>
-		</div>
-
-
-
-
-
-
-
 	</div>
 </template>
 
@@ -128,33 +118,6 @@ export default {
 			});
 			person.age = 18;
 			console.log(person)
-		},
-
-
-		// 用闭包的方法替换临时变量temp，封装defineproperty方法
-		defineReactive(data, key, value) {
-			if (arguments.length == 2) {
-				value = data[key];
-			}
-			Object.defineProperty(data, key, {
-				enumerable: true,
-				configurable: true,
-				// 数据劫持,
-				get() {
-					console.log('你在访问obj.ame');
-					return value;
-				},
-				set(newVal) {
-					value = newVal;
-					console.log('你在改变obj.ame');
-				},
-			});
-		},
-
-		changeData() {
-			const obj = {};
-			this.defineReactive(obj, 'width', 100);
-			console.log(obj);
 		},
 		setProxy() {
 			console.log(this)
