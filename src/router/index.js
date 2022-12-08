@@ -185,6 +185,26 @@ export const defalutRoutes = [
 			},
 		],
 	},
+	{
+		path: '/basicknowledge',
+		title: '基础知识学习',
+		isMenu: true,
+		component: layout,
+		children: [
+			{
+				path: '/es6',
+				name: 'ES6',
+				title: 'ES6',
+				props: true,
+				meta: {
+					isAuth: false,
+					title: 'ES6',
+				},
+				component: () => import('@/pages/ES6/index.vue'),
+				children: [],
+			},
+		],
+	},
 ];
 
 // 创建一个路由器

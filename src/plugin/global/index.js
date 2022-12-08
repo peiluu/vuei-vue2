@@ -22,12 +22,13 @@ export default {
 					b: 2,
 				};
 			},
+			// 混入的生命周期钩子函数
 			created() {
 				// console.log('混入created')
 			},
 		});
 
 		// 给Vue原型上添加方法
-		Vue.prototype.hello = permissions => {};
+		Vue.prototype.hello = () => {};
 	},
 };
