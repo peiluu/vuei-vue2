@@ -7,5 +7,7 @@ export const def = function (obj, key, value, enumerable) {
 		configurable: true,
 	});
 };
+console.debug
+
 
 

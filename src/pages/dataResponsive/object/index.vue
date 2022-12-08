@@ -22,6 +22,13 @@ export default {
 		};
 	},
 
+	mounted() {
+		function Creat() { }
+		const obj = new Creat()
+		// console.log(obj.__proto__)	
+		// console.log(obj.__proto__ === Creat.prototype)
+		// console.log(Creat.prototype.__proto__) // Object构造函数说
+	},
 	methods: {
 		watchObj() {
 			let obj = {

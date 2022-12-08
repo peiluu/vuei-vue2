@@ -10,12 +10,14 @@ import { observe } from './observe.js';
  * 创建类的时候要考虑一个类如何被实例化
  */
 export default class Observer {
+	// 类的构造方法，每次通过new关键词去创建类的实例时，都会调用此函数
 	constructor(value) {
 		// console.log('我是Observer构造器，', value);
 		// 给实例（this: 函数中的this不是表示类本身，而是表示实例）添加了__ob__属性，值是这是new的实例
 		def(value, '__ob__', this, false);
 
 		// 检查是数组还是对象
+		console.log(value)
 		if (Array.isArray(value)) {
 			// ，如果是数组，强行将数组的原型指向arrayMethods（重写过数组七个方法的原型对象	）
 			Object.setPrototypeOf(value, arrayMethods);

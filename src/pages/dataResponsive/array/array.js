@@ -5,6 +5,7 @@ import { def } from './utils';
 const arraPrototype = Array.prototype;
 
 // 以Array.prototype为原型创建arrayMethods对象, arrayMethods的原型指向arraPrototype
+// 当外部文件查找引入arrayMethods的时候，会执行此文件中的代码
 export const arrayMethods = Object.create(arraPrototype);
 
 // 改写对象的原型的方法
@@ -29,6 +30,7 @@ methodsNeedChange.forEach(methodName => {
 	def(
 		arrayMethods,
 		methodName,
+		// 以函数的返回值作为def的第三个参数
 		function () {
 			/**
 			 * 把这个数组身上的__ob__取出去，__ob__已经被添加了
@@ -40,7 +42,7 @@ methodsNeedChange.forEach(methodName => {
 			// 有三种方法psuh/unshift/splice能够插入新项，现在要把插入的新项也要变成observe的
 			let inserted = [];
 
-      // 将类数组对象变成数组
+			// 将类数组对象变成数组
 			const args = [...arguments];
 			switch (methodName) {
 				case 'push':
@@ -49,7 +51,12 @@ methodsNeedChange.forEach(methodName => {
 					break;
 
 				case 'splice':
-					// splice格式是splice(下标, 数量, 插入的新项)
+					/**
+					 * splice格式是splice(下标, 数量, 插入的新项), 	如果第三个参数为空，则删除项
+					 * plice(2) 传入一个参数，表示从最后一项算起，取倒数第三项开始的所有数据
+					 * 如果传入的args为[0, 0, 1, 2, 3]，args.splice(2)的返回值为[1, 2, 3]
+					 */
+
 					inserted = args.splice(2);
 			}
 			// 判断有没有插入的新项，让新项也变成响应的
@@ -65,7 +72,7 @@ methodsNeedChange.forEach(methodName => {
 
 			// 恢复原来的功能
 			const result = original.apply(this, arguments);
-
+			console.log('result', result);
 			return result;
 		},
 		false

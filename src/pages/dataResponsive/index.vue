@@ -1,3 +1,4 @@
+
 <template>
 	<div class="page-defineproperty">
 		<h4>Vue 数据响应式原理</h4>
@@ -8,30 +9,37 @@
 		<el-tabs v-model="currentTab" class="center-tabs" type="card">
 			<el-tab-pane label="侦听对象" name="object" />
 			<el-tab-pane label="侦听数组" name="array" />
+			<el-tab-pane label="ES6 class类" name="class" />
 			<div v-if="(currentTab === 'object')">
 				<objectResponsive />
 			</div>
-			<div v-else>
+			<div v-if="(currentTab === 'array')">
 				<arrayResponsive />
+			</div>
+			<div v-if="(currentTab === 'class')">
+				<classStudy />
 			</div>
 		</el-tabs>
 
 	</div>
 </template>
 <!-- eslint-disable no-unused-vars -->
+<!-- eslint-disable vue/no-unused-components -->
 <script>
 import objectResponsive from './object'
 import arrayResponsive from './array'
+import classStudy from './classStudy.vue'
 
 export default {
 	name: 'dataResponsive',
 	components: {
 		objectResponsive,
-		arrayResponsive
+		arrayResponsive,
+		classStudy
 	},
 	data() {
 		return {
-			currentTab: 'object',
+			currentTab: 'array',
 			person: {
 				name: '张三',
 				age: 18

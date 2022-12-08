@@ -22,6 +22,8 @@ export default {
 		};
 	},
 
+	mounted() { },
+
 	methods: {
 		watchArr() {
 			let obj = {
@@ -30,14 +32,13 @@ export default {
 				},
 				b: [],
 			}
-			observe(obj)
-			obj.a.c.push(1, 2)
-			obj.b[2] = 1
-			console.log(obj)
-			console.log(this)
 
+
+			observe(obj)
+			obj.a.c.push(1, 2, 3)
+			obj.b.splice(0, 0, 1,2,3)
 		},
-	}
+	},
 };
 </script>
 
