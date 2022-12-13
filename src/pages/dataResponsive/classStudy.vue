@@ -15,6 +15,16 @@ export default {
 	},
 	mounted() {
 		// this.addClass()
+
+		// 实现不重复添加数据时
+
+		const record = { id: 11, potion: { a: 1, b: { c: '' } } }
+		const arr = [{ id: 11 }]
+		if (!arr.some((item) => item.id === record.id)) {
+			arr.push(record)
+		}
+		console.log(arr)
+		const { potion = {}, potion: { a = '' } = {}, potion: { a: { c = '' } } } = record
 	},
 
 	methods: {

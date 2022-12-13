@@ -26,8 +26,8 @@
 <!-- eslint-disable no-unused-vars -->
 <!-- eslint-disable vue/no-unused-components -->
 <script>
-import objectResponsive from './object'
-import arrayResponsive from './array'
+import objectResponsive from './object/index.vue'
+import arrayResponsive from './array/index.vue'
 import classStudy from './classStudy.vue'
 
 export default {

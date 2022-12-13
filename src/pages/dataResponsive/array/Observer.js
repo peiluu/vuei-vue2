@@ -34,7 +34,7 @@ export default class Observer {
 	}
 	// 数组的特殊遍历
 	observeArray(arr) {
-		// 事先定义好len = arr.length，防止数组咋在遍历的过程中有长度的变化
+		// 事先定义好len = arr.length，防止数组在遍历的过程中有长度的变化
 		for (let i = 0, len = arr.length; i < len; i++) {
 			observe(arr[i]);
 		}

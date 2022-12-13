@@ -32,11 +32,9 @@ export default {
 				},
 				b: [],
 			}
-
-
 			observe(obj)
 			obj.a.c.push(1, 2, 3)
-			obj.b.splice(0, 0, 1,2,3)
+			obj.b.splice(0, 0, 1, 2, 3)
 		},
 	},
 };
