@@ -39,11 +39,10 @@ module.exports = {
 	// 通过axios去请求接口时，不需要配置devServer，本地运行和通过服务器请求时都是通过配置axios中的baseURL配置来访问api地址的
 	devServer: {
 		// 本地服务器配置(npm run serve)
-		port: 8888, // 端口x
+		port: 1000, // 端口x
 		host: 'localhost', // 域名
 		// https: true, // 是否开启https
 		open: true, // 是否在开启服务器后自动打开浏览器访问该服务器
-
 		// 访问 ： http://localhost:8080/api/info
 		// 代理到 http://localhost:8081/api/info
 		// 真正的接口地址：http://localhost:8081/new/api/info
@@ -51,8 +50,8 @@ module.exports = {
 		proxy: {
 			'/api': {
 				// target: 'http://192.168.28.178:8762', //代理地址，这里设置的地址会代替axios中设置的baseURL。将/api前的域名代理为http://localhost:8081
-				target: 'https://api.uixsj.cn/hitokoto', 
-				// pathRewrite: { '/api': '/' }, // 重写/api , 这个 /api 已经在 pathRewrite 被替换掉了，接口就变成404
+				target: 'http://localhost:1000', 
+				pathRewrite: { '/api': '/' }, // 重写/api , 这个 /api 已经在 pathRewrite 被替换掉了，接口就变成404
 			},
 			'/fxfx': {
 				target: 'http://192.168.28.178:8762',
