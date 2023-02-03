@@ -5,7 +5,6 @@
 			<h5>{{ form }}</h5>
 			<el-button class="box" @click="addProty">添加响应式属性</el-button>
 		</div>
-
 		<div>
 			<h5>{{ person }}</h5>
 			<el-button class="box" @click="defineProperty">defineProperty添加属性</el-button>
@@ -48,7 +47,7 @@ export default {
 	beforeMount() { },
 	mounted() { },
 	computed: {
-		computedPerson(){
+		computedPerson() {
 			return {
 				name: '张三',
 				age: 18
@@ -73,9 +72,9 @@ export default {
 			// 相对于直接添加属性，defineProperty可以进行更加灵活的配置
 			Object.defineProperty(person, 'job', {
 				value: '开发', // 属性值
-				enumerable: true, //控制属性是否可以枚举，默认值是false
-				writable: true,//控制属性是否可以被修改，默认值是false
-				configurable: true,//控制烟性是否可以被删除，默认值是false
+				enumerable: true, // 控制属性是否可以枚举，默认值是false
+				writable: true,// 控制属性是否可以被修改，默认值是false
+				configurable: true,// 控制烟性是否可以被删除，默认值是false
 				// 数据劫持,
 				// get() {
 				// 	console.log('你在访问obj.ame');
@@ -114,7 +113,7 @@ export default {
 					tempAag = newVal;
 					console.log('你在改变obj.age');
 				},
-			
+
 			});
 			person.age = 18;
 			console.log(person)
@@ -141,8 +140,8 @@ export default {
 		},
 
 		/**
-		 * 1.Vue中的数据代理:通过vm对象来代理data对象中属性的操作(读/写)
-		 * 2.Vue中数据代理的好处:更加方便的操作data中的数据
+		 * 1.Vue中的数据代理: 通过vm对象来代理data对象中属性的操作(读/写)
+		 * 2.Vue中数据代理的好处: 更加方便的操作data中的数据
 		 * 3.某本原理:
 					通过object.defineProperty()把data对象中所有属性添加到vm上.
 					为每一个添加到vm上的属性，都指定一个getter/setter。
@@ -157,11 +156,11 @@ export default {
 		},
 
 		// 数据劫持 - 劫持或者监听数据的变化
-		setHijack() { 
+		setHijack() {
 			const person = { name: '张三', age: 18 }
 			Object.defineProperty(person, 'age', {
 				// 通过set
-				
+
 				set(value) {
 					render()
 				},

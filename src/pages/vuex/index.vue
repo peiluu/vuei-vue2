@@ -8,7 +8,7 @@
 			<el-button size="small" @click="updateApps({ num: 1 })">add</el-button>
 		</div>
 		<!-- <h5>width：{{ width }}</h5> -->
-
+		
 		<h4>avatar - {{ id }}</h4>
 
 		<h4>tip - {{ tipMsg }}</h4>

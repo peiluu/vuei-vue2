@@ -1,8 +1,8 @@
 const path = require('path');
 
 /**
- * @desption - 配置scss变量全局引入
- * @param - 自动化导入样式文件 ( 用于颜色、变量、 mixin 等 ) ，可以使用 style-resources-loader
+ * @desption - 配置scss变量自动化导入样式文件全局引入
+ * @param -  ( 用于颜色、变量、 mixin 等 ) ，可以使用 style-resources-loader
  */
 function addStyleResource(rule) {
 	rule
@@ -35,10 +35,11 @@ module.exports = {
 		);
 	},
 
-	// 本地服务器配置
+	// 本地服务器配置，
+	// 通过axios去请求接口时，不需要配置devServer，本地运行和通过服务器请求时都是通过配置axios中的baseURL配置来访问api地址的
 	devServer: {
 		// 本地服务器配置(npm run serve)
-		port: 8888, // 端口
+		port: 8888, // 端口x
 		host: 'localhost', // 域名
 		// https: true, // 是否开启https
 		open: true, // 是否在开启服务器后自动打开浏览器访问该服务器

@@ -192,15 +192,15 @@ export const defalutRoutes = [
 		component: layout,
 		children: [
 			{
-				path: '/es6',
-				name: 'ES6',
-				title: 'ES6',
+				path: '/generator',
+				name: 'generator',
+				title: 'generator',
 				props: true,
 				meta: {
 					isAuth: false,
-					title: 'ES6',
+					title: 'generator',
 				},
-				component: () => import('@/pages/ES6/index.vue'),
+				component: () => import('@/pages/generator/index.vue'),
 				children: [],
 			},
 		],
