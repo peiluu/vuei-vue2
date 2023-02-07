@@ -25,7 +25,7 @@ service.interceptors.request.use(
 		// }
 		// 加载接口时显示loading
 		// if (!config.hideLoading) {
-		// 	loading = ElLoading.service({
+		// 	loading = MessageBox.service({
 		// 		lock: true,
 		// 		// text: "Loading",
 		// 		background: 'rgba(0, 0, 0, 0.7)',
@@ -43,7 +43,6 @@ service.interceptors.request.use(
 		return config;
 	},
 	error => {
-		// Do something with request error
 		console.log(error); // for debug
 		Promise.reject(error);
 	}

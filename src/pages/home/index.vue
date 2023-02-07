@@ -28,9 +28,8 @@ export default {
 	methods: {
 		async getPerson() {
 			const { data = {} } = await getPerson()
-			console.log(data)
+			console.log(data) 
 			this.userInfo = data
-
 		},
 		async sendUser() {
 			const { data = {} } = await sendUser({
