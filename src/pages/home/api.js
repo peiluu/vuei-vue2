@@ -10,7 +10,7 @@ export function getPerson(data) {
 
 export function sendUser(data) {
 	return request({
-		url: '/api/sendUser',
+		url: '/sendUser',
 		method: 'post',
 		data,
 	});

@@ -1,15 +1,16 @@
 /* eslint-disable no-unreachable */
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
-const querystring = require('querystringify');
 import config from '@/config/index.js';
-import { Message, MessageBox } from 'element-ui';
+import { Message } from 'element-ui';
+const querystring = require('querystringify');
 // import store from '../store';
 
-// 创建axios对象
+// 创建axios对象，当同时配置proxy本地代理和baseURL时，会优先使用baseURL
 const service = axios.create({
-	// baseURL: config.BASE_API, // 起到代理的作用
-	// baseURL: 'https://api.uixsj.cn/hitokoto', // 起到代理的作用
+	//`baseURL` 将自动加在 `url` 前面，除非 `url` 是一个绝对 URL。 它可以通过设置一个 `baseURL` 便于为 axios 实例的方法传递相对 URL
+	// baseURL: config.BASE_API,
+	// baseURL: 'http://localhost:1002',
 	timeout: 60000,
 	withCredentials: true,
 });

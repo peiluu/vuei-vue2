@@ -18,6 +18,8 @@ function addStyleResource(rule) {
  * 脚手架会把你的配置和webpack中已经写好的默认配置进行合并，以你的为主，不破坏核心配置
  */
 module.exports = {
+	// 关闭自动lint校验
+	lintOnSave: false,
 	// 页面配置
 	pages: {
 		index: {
@@ -50,11 +52,11 @@ module.exports = {
 		proxy: {
 			'/api': {
 				// target: 'http://192.168.28.178:8762', //代理地址，这里设置的地址会代替axios中设置的baseURL。将/api前的域名代理为http://localhost:8081
-				target: 'http://localhost:1000', 
+				target: 'http://localhost:1002',
 				pathRewrite: { '/api': '/' }, // 重写/api , 这个 /api 已经在 pathRewrite 被替换掉了，接口就变成404
 			},
-			'/fxfx': {
-				target: 'http://192.168.28.178:8762',
+			'/sendUser': {
+				target: 'http://localhost:1002',
 				changeOrigin: true, //是否跨域
 			},
 		},
