@@ -4,12 +4,14 @@
 		<h6>获取express服务器下的api，获取用户数据</h6>
 		<div>用户名：{{ userInfo.name }}</div>
 		<div>年龄：{{ userInfo.age }}</div>
+		<button v-permission></button>
 	</div>
 </template>
 
 <script>
 /* eslint-disable no-unused-vars */
 import { getPerson, sendUser } from './api';
+import singleMixins from '@/plugin/mixins/singleMixins';
 
 export default {
 	name: 'home',
@@ -19,6 +21,7 @@ export default {
 			userInfo: {},
 		};
 	},
+	mixins: [singleMixins],
 	beforeMount() {},
 	mounted() {
 		this.getPerson();

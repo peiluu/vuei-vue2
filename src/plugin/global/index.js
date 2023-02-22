@@ -28,7 +28,10 @@ export default {
 			},
 		});
 
-		// 给Vue原型上添加方法
-		Vue.prototype.hello = () => {};
+		// 给Vue原型上添加方法，可以用Vue文件中用this调用
+		Vue.prototype.hello = () => {
+
+			console.log('调用Vue原型上的方法')
+		};
 	},
 };
