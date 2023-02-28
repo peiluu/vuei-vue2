@@ -18,7 +18,7 @@ function addStyleResource(rule) {
  * 脚手架会把你的配置和webpack中已经写好的默认配置进行合并，以你的为主，不破坏核心配置
  */
 module.exports = {
-	// 关闭自动lint校验
+	// 关闭保存文件时自动lint校验
 	lintOnSave: false,
 	// 页面配置
 	pages: {

@@ -2,11 +2,12 @@
 import Vue from 'vue';
 
 import Router from 'vue-router';
+
+import layout from '@/layout/index.vue';
+
 // import Layout from '@/layout/index';
 // 插件应用需要使用Vue.use方法应用
 Vue.use(Router);
-
-import layout from '@/layout/index.vue';
 /**
  * @desption 配置非组件式路由，里面的path所对应的页面不会被layout组件包裹
  */

@@ -12,20 +12,6 @@ import { jsonToQueryString } from '@/utils/utils.ts';
  * @param config 其余配置项
  */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export const request1 = (url, options, config = { hideError: false }) => {
 	const data = fetch(url)
 		.then(response => {
@@ -110,7 +96,7 @@ export const request3 = async (url, options, config = { hideError: false }) => {
 		// data = await authority("/api/authority");
 		// if (data.code === 0) {
 		//   window.3
-		sessionStorage.setItem("oper", data.data.userName);
+		sessionStorage.setItem('oper', data.data.userName);
 		//   return request(url, options);
 		// }
 	}
@@ -233,4 +219,26 @@ export const get = (url, config) => {
 		},
 		config
 	);
+};
+/**
+ * @desption 获取一段随机文本
+ * @returns 响应数据
+ */
+export const getSocial = async () => {
+	try {
+		console.log(
+			await axios.get('https://api.uixsj.cn/hitokoto/get?type=social')
+		);
+		return await axios.get('https://api.uixsj.cn/hitokoto/get?type=social');
+	} catch (error) {
+		console.error(error);
+	}
+};
+
+export const getSocial1 = async () => {
+	try {
+		return await service.get('https://api.uixsj.cn/hitokoto/get?type=social');
+	} catch (error) {
+		console.error(error);
+	}
 };

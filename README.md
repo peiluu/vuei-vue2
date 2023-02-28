@@ -8,3 +8,4 @@
 5. Vue 数据代理 
 6. 前端网络请求各类方法
 7. Vue插件使用（全局定义mixins、directive、filters）
+8. express + node 搭建后台服务器

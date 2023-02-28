@@ -10,4 +10,5 @@ const config = {
 		BASE_API: 'http://localhost:1000',
 	},
 };
+
 export default config[NODE_ENV];

@@ -158,28 +158,5 @@ const customePost = async (
 	}
 };
 
-/**
- * @desption 获取一段随机文本
- * @returns 响应数据
- */
-const getSocial = async () => {
-	try {
-		console.log(
-			await axios.get('https://api.uixsj.cn/hitokoto/get?type=social')
-		);
-		return await axios.get('https://api.uixsj.cn/hitokoto/get?type=social');
-	} catch (error) {
-		console.error(error);
-	}
-};
-
-const getSocial1 = async () => {
-	try {
-		return await service.get('https://api.uixsj.cn/hitokoto/get?type=social');
-	} catch (error) {
-		console.error(error);
-	}
-};
-
 // export { get, post, customePost, getSocial, getSocial1 };
 export default service;
