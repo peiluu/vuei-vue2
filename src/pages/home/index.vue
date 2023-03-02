@@ -4,7 +4,8 @@
 		<h6>获取express服务器下的api，获取用户数据</h6>
 		<div>用户名：{{ userInfo.name }}</div>
 		<div>年龄：{{ userInfo.age }}</div>
-		<button v-permission></button>
+		<!-- <button v-permission></button> -->
+		<el-button type="primary">1</el-button>
 	</div>
 </template>
 

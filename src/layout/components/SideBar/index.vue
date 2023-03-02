@@ -12,12 +12,14 @@
 				<template v-for="(item, index) in menuList">
 					<!-- 判断一级菜单下是否有二级菜单 -->
 					<template
-						v-if="item.children && item.children.length > 0 && item.isMenu"
+						v-if="
+							item.children && item.children.length > 0 && item.meta?.isMenu
+						"
 					>
 						<el-submenu :index="`item-${index}`" :key="index">
 							<template slot="title">
-								<i :class="item.iconClass"></i>
-								<span>{{ item.title }}</span>
+								<i :class="item?.meta?.iconClass"></i>
+								<span>{{ item?.meta?.title }}</span>
 							</template>
 
 							<!-- 循环二级菜单 -->
@@ -28,8 +30,8 @@
 								>
 									<el-submenu :index="`subItem-${subIndex}`" :key="subIndex">
 										<template slot="title">
-											<i :class="subItem.iconClass"></i>
-											<span>{{ subItem.title }}</span>
+											<i :class="subItem?.meta?.iconClass"></i>
+											<span>{{ subItem?.meta?.title }}</span>
 										</template>
 
 										<!-- 循环三级菜单 -->
@@ -39,13 +41,13 @@
 											:key="itx"
 										>
 											<!-- <router-link :to="itm.path"> {{ itm.title }}</router-link> -->
-											{{ itm.title }}
+											{{ itm?.meta?.title }}
 										</el-menu-item>
 									</el-submenu>
 								</template>
 								<!-- 如果二级菜单下没有三级菜单，直接跳转路由 -->
 								<el-menu-item @click="goToPage(subItem)" v-else :key="subIndex">
-									{{ subItem.title }}
+									{{ subItem?.meta?.title }}
 								</el-menu-item>
 							</template>
 						</el-submenu>
@@ -54,9 +56,9 @@
 						<el-menu-item
 							@click="goToPage(item)"
 							:key="index"
-							v-if="item.isMenu"
+							v-if="item?.meta?.isMenu"
 						>
-							{{ item.title }}
+							{{ item?.meta?.title }}
 						</el-menu-item>
 					</template>
 				</template>

@@ -41,7 +41,7 @@ module.exports = {
 	// 通过axios去请求接口时，不需要配置devServer，本地运行和通过服务器请求时都是通过配置axios中的baseURL配置来访问api地址的
 	devServer: {
 		// 本地服务器配置(npm run serve)
-		port: 1000, // 端口x
+		port: 9532, // 端口x
 		host: 'localhost', // 域名
 		// https: true, // 是否开启https
 		open: true, // 是否在开启服务器后自动打开浏览器访问该服务器
@@ -52,11 +52,11 @@ module.exports = {
 		proxy: {
 			'/api': {
 				// target: 'http://192.168.28.178:8762', //代理地址，这里设置的地址会代替axios中设置的baseURL。将/api前的域名代理为http://localhost:8081
-				target: 'http://localhost:1002',
+				target: 'http://localhost:9532',
 				pathRewrite: { '/api': '/' }, // 重写/api , 这个 /api 已经在 pathRewrite 被替换掉了，接口就变成404
 			},
 			'/sendUser': {
-				target: 'http://localhost:1002',
+				target: 'http://localhost:9532',
 				changeOrigin: true, //是否跨域
 			},
 		},

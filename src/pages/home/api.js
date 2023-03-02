@@ -2,7 +2,7 @@ import request from '@/utils/axios';
 
 export function getPerson(data) {
 	return request({
-		url: '/api/person',
+		url: '/person',
 		method: 'get',
 		data,
 	});

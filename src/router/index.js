@@ -21,19 +21,17 @@ export const defalutRoutes = [
 	{
 		path: '/',
 		redirect: '/myhome',
-		isMenu: false,
+		meta: {
+			isMenu: false,
+		},
 	},
 
 	{
 		// 父级路由，path带斜杠
 		path: '/home',
-		title: '首页',
 		// 命名路由，可以简化编码，用名字替换长路由
 		name: 'shouye',
-		iconClass: 'el-icon-location',
-		isMenu: true,
 		// ？？ 为什么父级不用component会无法加载子级路由
-
 		component: layout,
 		// component: () => import('@/pages/home/index.vue'),
 
@@ -41,10 +39,8 @@ export const defalutRoutes = [
 		// props: {
 		// 	type: 1,
 		// },
-
 		// props的第二种写法，值为布尔值，若布尔值为真，就会把该路由组件收到的所有params参数以props的形式传到该组件
 		// props: true,//
-
 		// props的第三种写法，值为回调函数
 		// props属性可以让路由组件在接受参数的时候可以更加畅快，减少参数
 		props(route) {
@@ -53,21 +49,25 @@ export const defalutRoutes = [
 				title: route.query.title,
 			};
 		},
-
 		// meta - 路由元信息，可自定义配置路由信息
 		meta: {
 			isAuth: false,
 			title: '首页',
+			iconClass: 'el-icon-location',
+			isMenu: true,
 		},
 		// 独享路由守卫（独享路由守卫只有一个，没有前置后置），单独为某个路由配置
 		beforeEnter: (to, from, next) => {
 			next();
 		},
+		/**
+		 *  @desption 嵌套路由配置, 用layout组件包裹内置组件, 要在嵌套的出口中渲染组件，需要在 VueRouter 的参数中使用 children 配置
+		 *
+		 */
 		children: [
 			{
 				// 子级路由，path不需要带斜杠，對那個
 				path: '/myhome',
-				title: '二级首页',
 				component: () => import('@/pages/home/index.vue'),
 				meta: {
 					isAuth: false,
@@ -80,55 +80,44 @@ export const defalutRoutes = [
 
 	{
 		path: '/systemsetting',
-		name: 'xitongshezhi',
-		title: '系统设置',
-		isMenu: true,
 		component: layout,
-		// component: () => import('@/pages/systemsetting/index.vue'),
 		meta: {
 			isAuth: false,
 			title: '系统设置',
+			isMenu: true,
 		},
-		// children: [
-		// 	{
-		// 		path: '/systemsetting',
-		// 		title: '下层系统设置',
-		// 		component: () => import('@/pages/systemsetting/index.vue'),
-		// 	},
-		// ],
+		children: [
+			{
+				path: '/systemsetting',
+				meta: { title: '下层系统设置' },
+				component: () => import('@/pages/systemsetting/index.vue'),
+			},
+		],
 	},
 	{
 		path: '/vue',
-		title: 'vue学习',
-		isMenu: true,
 		component: layout,
-
-		/**
-		 *  @desption 嵌套路由配置, 用layout组件包裹内置组件, 要在嵌套的出口中渲染组件，需要在 VueRouter 的参数中使用 children 配置
-		 *
-		 */
+		meta: {
+			isMenu: true,
+			title: 'Vue基本知识',
+		},
 		children: [
 			{
 				path: '/vuerouter',
-				name: 'luyou',
-				title: 'vue-router',
 				props: true,
 				meta: {
 					isAuth: false,
-					title: '路由',
+					title: 'Vue路由',
 				},
 				component: () => import('@/pages/vuerouter/index.vue'),
 				children: [],
 			},
-
 			{
 				path: '/directive',
-				name: 'zhiling',
-				title: 'vue指令',
 				props: true,
 				meta: {
 					isAuth: false,
-					title: 'vue指令',
+					title: 'Vue指令',
 				},
 				component: () => import('@/pages/directive/index.vue'),
 				children: [],
@@ -136,51 +125,46 @@ export const defalutRoutes = [
 
 			{
 				path: '/defineproperty',
-				title: 'defineproperty',
 				component: () => import('@/pages/defineproperty/index.vue'),
 				meta: {
 					isAuth: false,
-					title: '数据代理',
+					title: 'defineproperty数据代理',
 				},
 				children: [],
 			},
 			{
 				path: '/observer',
-				title: '数据代理',
 				component: () => import('@/pages/observer/index.vue'),
 				meta: {
 					isAuth: false,
-					title: '组件',
+					title: 'observers观察者模式',
 				},
 				children: [],
 			},
 			{
 				path: '/dataResponsive',
-				title: '数据响应式原理',
 				component: () => import('@/pages/dataResponsive/index.vue'),
 				meta: {
 					isAuth: false,
-					title: '组件',
+					title: '数据响应式原理',
 				},
 				children: [],
 			},
 			{
 				path: '/vuex',
-				title: 'vuex',
 				component: () => import('@/pages/vuex/index.vue'),
 				meta: {
 					isAuth: false,
-					title: 'vuex',
+					title: 'Vuex',
 				},
 				children: [],
 			},
 			{
 				path: '/vuecomponent',
-				title: 'vuecomponent',
 				component: () => import('@/pages/vuecomponent/index.vue'),
 				meta: {
 					isAuth: false,
-					title: '组件',
+					title: 'Vue组件',
 				},
 				children: [],
 			},
@@ -188,18 +172,29 @@ export const defalutRoutes = [
 	},
 	{
 		path: '/basicknowledge',
-		title: '基础知识学习',
-		isMenu: true,
+
+		meta: {
+			isMenu: true,
+			title: 'ES6基础知识学习',	
+		},
 		component: layout,
 		children: [
 			{
 				path: '/generator',
-				name: 'generator',
-				title: 'generator',
 				props: true,
 				meta: {
 					isAuth: false,
 					title: 'generator',
+				},
+				component: () => import('@/pages/generator/index.vue'),
+				children: [],
+			},
+			{
+				path: '/other',
+				props: true,
+				meta: {
+					isAuth: false,
+					title: '其他特性',
 				},
 				component: () => import('@/pages/generator/index.vue'),
 				children: [],

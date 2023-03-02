@@ -16,7 +16,7 @@
 	],
 	"license": "ISC",
 	"scripts": {
-		"dev": "vue-cli-service serve --open",
+		"dev": "vue-cli-service serve",
 		"build": "vue-cli-service build",
 		"build:js": "rimraf componentsdist && npm rebuild node-sass && webpack --config ./webpack.components.js",
 		"build:css": "npx gulp sass",

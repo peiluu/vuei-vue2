@@ -23,7 +23,6 @@ app.use((req, res, next) => {
  *
  */
 app.get('/person', (req, res) => {
-	console.log('person接口被调用');
 	res.send({
 		code: 0,
 		data: {
@@ -33,8 +32,7 @@ app.get('/person', (req, res) => {
 	});
 });
 
-app.post('/sendUser', (req, res) => {
-	console.log(req);
+app.post('/sendUser', (req, res) =>a {
 	if (req) {
 		res.send({
 			code: 0,
@@ -45,6 +43,6 @@ app.post('/sendUser', (req, res) => {
 		});
 	}
 });
-app.listen(1002, err => {
+app.listen(9532, err => {
 	if (!err) console.log('服务器启动了');
 });
