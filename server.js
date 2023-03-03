@@ -32,7 +32,7 @@ app.get('/person', (req, res) => {
 	});
 });
 
-app.post('/sendUser', (req, res) =>a {
+app.post('/sendUser', (req, res) => {
 	if (req) {
 		res.send({
 			code: 0,
@@ -44,5 +44,10 @@ app.post('/sendUser', (req, res) =>a {
 	}
 });
 app.listen(9532, err => {
-	if (!err) console.log('服务器启动了');
+	if (!err) {
+		console.log('服务器启动了');
+		console.log(globalThis);
+		console.log(global);
+	}
 });
+e

@@ -196,7 +196,7 @@ export const defalutRoutes = [
 					isAuth: false,
 					title: '其他特性',
 				},
-				component: () => import('@/pages/generator/index.vue'),
+				component: () => import('@/pages/other/index.vue'),
 				children: [],
 			},
 		],

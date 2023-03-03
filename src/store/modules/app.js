@@ -22,7 +22,6 @@ export default {
 	},
 	actions: {
 		updateApps(context, params) {
-
 			context.commit('saveApps', params);
 		},
 	},
