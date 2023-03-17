@@ -6,9 +6,7 @@
 		<h5>{{ hobby }}</h5>
 		<h5> <button @click="changeArr">改变数组</button></h5>
 		<h5>{{ friends }}</h5>
-
 		<h5> <button @click="changeObjArr">改变对象数组</button></h5>
-
 		<h5> <button @click="handleClick">触发事件</button></h5>
 	</div>
 </template>
