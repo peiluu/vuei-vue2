@@ -12,15 +12,14 @@
 
 			<li>输入一组列表如下，转化成树形结构</li>
 		</ol>
-
+		<card />
 	</div>
 </template>
 
 <script>
-import { cpSync } from 'fs';
 
 export default {
-	name: "binaryTree",
+	name: "algorithm",
 	components: {},
 	data() {
 		return {

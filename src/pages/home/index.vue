@@ -6,6 +6,7 @@
 		<div>年龄：{{ userInfo.age }}</div>
 		<!-- <button v-permission></button> -->
 		<el-button type="primary">1</el-button>
+		<card />
 	</div>
 </template>
 

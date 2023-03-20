@@ -209,13 +209,13 @@ export const defalutRoutes = [
 		component: layout,
 		children: [
 			{
-				path: '/binaryTree',
+				path: '/algorithm',
 				props: true,
 				meta: {
 					isAuth: false,
 					title: '二叉树',
 				},
-				component: () => import('@/pages/algorithm/binaryTree.vue'),
+				component: () => import('@/pages/algorithm/index.vue'),
 				children: [],
 			},
 	
