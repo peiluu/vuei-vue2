@@ -11,7 +11,7 @@ export default {
 		Vue.directive('permission', {
 			// 当被绑定的元素插入到 DOM 中时触发
 			inserted: function (el, binding, vnode) {
-				console.log(1)
+
 				let access = false;
 				// 没有按钮权限，移除按钮元素
 				if (!access) {

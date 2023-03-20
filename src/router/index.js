@@ -172,7 +172,6 @@ export const defalutRoutes = [
 	},
 	{
 		path: '/basicknowledge',
-
 		meta: {
 			isMenu: true,
 			title: 'ES6基础知识学习',	
@@ -199,6 +198,27 @@ export const defalutRoutes = [
 				component: () => import('@/pages/other/index.vue'),
 				children: [],
 			},
+		],
+	},
+	{
+		path: '/algorithm',
+		meta: {
+			isMenu: true,
+			title: '算法题',	
+		},
+		component: layout,
+		children: [
+			{
+				path: '/binaryTree',
+				props: true,
+				meta: {
+					isAuth: false,
+					title: '二叉树',
+				},
+				component: () => import('@/pages/algorithm/binaryTree.vue'),
+				children: [],
+			},
+	
 		],
 	},
 ];

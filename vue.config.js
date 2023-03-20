@@ -41,7 +41,7 @@ module.exports = {
 	// 通过axios去请求接口时，不需要配置devServer，本地运行和通过服务器请求时都是通过配置axios中的baseURL配置来访问api地址的
 	devServer: {
 		// 本地服务器配置(npm run serve)
-		port: 9532, // 端口x
+		port: 9540, // 端口x
 		host: 'localhost', // 域名
 		// https: true, // 是否开启https
 		open: true, // 是否在开启服务器后自动打开浏览器访问该服务器
