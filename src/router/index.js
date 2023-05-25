@@ -20,11 +20,23 @@ export const defalutRoutes = [
 	// 配置重定向
 	{
 		path: '/',
-		redirect: '/myhome',
+		redirect: '/invoice',
 		meta: {
 			isMenu: false,
 		},
 	},
+	{
+		path: '/invoice',
+		component: () => import('@/pages/invoice/index.vue'),
+	},
+	// // 配置重定向
+	// {
+	// 	path: '/',
+	// 	redirect: '/myhome',
+	// 	meta: {
+	// 		isMenu: false,
+	// 	},
+	// },
 
 	{
 		// 父级路由，path带斜杠
@@ -174,7 +186,7 @@ export const defalutRoutes = [
 		path: '/basicknowledge',
 		meta: {
 			isMenu: true,
-			title: 'ES6基础知识学习',	
+			title: 'ES6基础知识学习',
 		},
 		component: layout,
 		children: [
@@ -204,7 +216,7 @@ export const defalutRoutes = [
 		path: '/algorithm',
 		meta: {
 			isMenu: true,
-			title: '算法题',	
+			title: '算法题',
 		},
 		component: layout,
 		children: [
@@ -218,7 +230,6 @@ export const defalutRoutes = [
 				component: () => import('@/pages/algorithm/index.vue'),
 				children: [],
 			},
-	
 		],
 	},
 ];
