@@ -1,0 +1,75 @@
+$w-0: 0px;
+$w-5: 5px;
+$w-8: 8px;
+$w-10: 10px;
+$w-15: 15px;
+$w-16: 16px;
+$w-20: 20px;
+$w-30: 30px;
+$w-32: 32px;
+$w-40: 40px;
+$w-48: 48px;
+$w-50: 50px;
+$w-60: 60px;
+$w-64: 64px;
+$w-80: 80px;
+$w-90: 90px;
+$w-96: 96px;
+$w-100: 100px;
+$w-120: 120px;
+$w-150: 150px;
+$w-180: 180px;
+$w-200: 200px;
+$w-300: 300px;
+$w-320: 320px;
+$w-400: 400px;
+$w-480: 480px;
+$w-500: 500px;
+
+$pe-5: 5%;
+$pe-10: 10%;
+$pe-15: 15%;
+$pe-20: 20%;
+$pe-25: 25%;
+$pe-30: 30%;
+$pe-35: 35%;
+$pe-40: 40%;
+$pe-45: 45%;
+$pe-50: 50%;
+$pe-55: 55%;
+$pe-60: 60%;
+$pe-65: 65%;
+$pe-70: 70%;
+$pe-75: 75%;
+$pe-80: 80%;
+$pe-85: 85%;
+$pe-90: 90%;
+$pe-95: 95%;
+$pe-100: 100%;
+
+/* 字体集合 */
+$fs-xs: 10px;
+$fs-xsm: 12px;
+$fs-sm: 14px;
+$fs-md: 16px;
+$fs-bg: 20px;
+$fs-lg: 24px;
+$fs-xl: 32px;
+
+/* 分辨率 */
+$phone-xs: 320px;
+$phone-md: 375px;
+$phone-lg: 414px;
+$pc-xs: 768px;
+$pc-sm: 1280px;
+$pc-md: 1366px;
+$pc-lg: 1440px;
+$pc-xl: 1680px;
+$pc-sl: 1920px;
+
+/* 普通样式 */
+$border-radius-size: 4px;
+$border-circle-radius: 50%;
+$z-index-max: 9999;
+$border-table-radius: 8px;
+

@@ -7,7 +7,7 @@
 </div>
 <div class="fp-page animate-fade-in">
   <div class="yb-options-bar yb-options-back"
-    data-bind="visible: data.fromPage() !== '' && data.fromParam() !== 'docking-detail' && data.fromParam() !== 'uninvoicement' ">
+    data-bind="visible: !(data.fromPage() !== '' && data.fromParam() !== 'docking-detail' && data.fromParam() !== 'uninvoicement' )">
     <div class="btn btn-default" data-bind="click: function(){ methods.cancelPage(); }">返回</div>
   </div>
   <div class="fp-page-header" data-bind="enableAll:data.isPageEnable() && data.isorgstop()">

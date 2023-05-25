@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url('./basic.css');
+@import url('./theme.diwork.css');
 
 /*棕色*/
 /*灰色*/
@@ -560,8 +562,8 @@ span.valid-error {
 }
 
 .fp-mask {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.7);
+  /* position: absolute;
+  background-color: rgba(255, 255, 255, 0.7); */
   top: 0;
   left: 0;
   width: 100%;
@@ -1933,4 +1935,19 @@ span.fp-yellow-top:before {
 
 .fp-unit-purchase .fp-NO-section .fp-form-control-static {
   line-height: 24px;
+}
+.t-diwork .invoice-table {
+  font-size: 12px !important;
+}
+
+#sysDock-uninvoice-content {
+  .fp-page {
+    padding-bottom: 0;
+  }
+  .fp-cRemark-content {
+    width: 250px !important;
+  }
+  div[auto-const-id=hand-invoice-show-book] {
+    display: none !important;
+  }
 }

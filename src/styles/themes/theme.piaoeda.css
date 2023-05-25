@@ -1,0 +1,77 @@
+
+.t-piaoeda {
+  /*ys风格按钮样式*/
+  &.zoom-up {
+    zoom: 1.1 !important;
+  }
+  .ys-button.react-btn-red {
+     background: $color-btn-primary;
+
+    &:hover {
+      background: $color-btn-primary;
+    }
+  }
+
+  .search-layout-list .button-list {
+    .react-btn-text,
+    .react-btn.react-btn-text {
+      color: $color-btn-primary;
+
+      &:hover {
+        color: $color-btn-primary-hover;
+        background: transparent;
+      }
+    }
+
+    .react-btn-special {
+      background: $color-btn-primary;
+      color: #fff;
+      border: 1px solid $color-btn-primary;
+
+      .react-btn {
+        height: 32px;
+        line-height: 32px;
+      }
+
+      &:hover {
+        background: $color-btn-primary-hover;
+        border: 1px solid $color-btn-primary-hover;
+      }
+    }
+  }
+  /*optionBar分组按钮样式*/
+  .ys-bottom-bar {
+    .ys-option-group {
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .ys-search-bar__wrap {
+
+      .text-inner {
+        overflow: inherit !important;
+      }
+
+      .react-text {
+        height: 28px;
+        line-height: 28px;
+
+      }
+
+      .ys-search-bar__fuzzy {
+        background-color: #ffffff;
+      }
+
+    }
+  }
+
+  .bill-center {
+
+    &.bill-center-input {
+      .bill-center-slider {
+        border-top-color: $color-common-black-light;
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+/* 与颜色有关的变量  diwork风格 */
+
+/* 背景颜色 */
+$color-bg: #F5F5F5;
+$color-bg-white: #ffffff;
+
+/* 新增，保存按钮的颜色 */
+$color-btn-primary: #F02534;
+$color-btn-primary-hover: #F83F2B;
+
+/* 非新增，保存的按钮颜色 */
+$color-btn-default: #FFFFFF;
+$color-btn-hover: #F3F5F9;
+
+/* 搜索按钮颜色 */
+$color-search-default: #505766;
+$color-search-hover: #616874;
+
+$color-switch: #588ce8;
+$color-text-button: #5086FB;
+$color-text-button-text: #8DBBF5;
+
+/* 模态框取消按钮的颜色 */
+$color-modal-cancel: #DBE0E5;
+$color-modal-cancel-hover: #E5E9EC;
+$color-modal-mask: #37373799;
+
+/* 边框的颜色 */
+$color-border-default: #E5E5E5;
+$color-border-hover: #858A94;
+
+/* 按钮文本颜色 */
+$color-txt-btn: #6B717C;
+$color-txt-default: #505766;
+
+/* 其余文本形态颜色 */
+$color-txt-active: #EE2223;
+$color-txt-hover: #283041;
+$color-txt-primary: #666;
+$color-txt-deep: #333;
+$color-txt-modal: #6B717C;
+$color-txt-white: #FFFFFF;
+$color-txt-warning: #ee2233;
+$color-btn-gray: #F7F7F7;
+$color-link: #588ce9;
+
+/* table颜色集合 */
+$color-table-header: #f7f9fd;
+$color-table-row-hover: #edf1f7;
+$color-table-pageIcon: #adb4bc;
+$color-table-noData: #909090;
+
+/* select组件颜色 */
+$color-select-active: #fff7e7;
+$color-select-hover: #f7f9fd;
+
+/* checkbox选中颜色 */
+$color-checkbox-default: #aaa;
+$color-checkbox-active: #505766;
+$color-checkbox-disabled: #aaa;
+$color-checkbox-border: #ddd;
+$text-default-color: #ccc;
+
+$color-select-hover: #FFF7E7;
+$color-input-border: #D9D9D9;
+
+$color-common-black: #505766;
+$color-common-black-light: #adb4bc;
+$color-common-hover: #edf1f7;
+$color-blue-gray: #f8faff;
+$color-invoice-hover-gray: #dedede;
+$color-valid-error: #ee2233;
+
+/* 分页主题颜色变量定义 */
+$pagination-theme-color: #adb4bc;
+

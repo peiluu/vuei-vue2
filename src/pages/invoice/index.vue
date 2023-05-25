@@ -1,25 +1,23 @@
 <template>
-	<div class="page-com">
-		<img src="../../assets/specimen-icon.png" alt="" class="specimenImg" data-bind="visible:data.expType() =='exp'" />
-<div class="fp-mask" data-bind="visible: data.isPrintVisbleMask">
-  <div class="load-wait">
-    <div class="load-label">开票中</div>
-    <img src="../../assets/diwork/loading.png" class="load-img" alt="">
-  </div>
-</div>
-<div class="fp-page animate-fade-in">
-  <div class="yb-options-bar yb-options-back"
-    data-bind="visible: data.fromPage() !== '' && data.fromParam() !== 'docking-detail' && data.fromParam() !== 'uninvoicement' ">
-    <div class="btn btn-default" data-bind="click: function(){ methods.cancelPage(); }">返回</div>
-  </div>
-  <div class="fp-page-header" data-bind="enableAll:data.isPageEnable() && data.isorgstop()">
-    <div class="fp-row">
-      <div class="fp-form-group">
-        <!-- 开票点组件 glue -->
-        <span class="fp-group-label letter-spacing-1rem required"
-          data-bind="text: data.orgName, css: {'text-indent-w1': data.orgName() == '开票点'}"></span>
-        <div class="fp-form-control-container" id='hand-invoice-site-glue'></div>
-        <!-- <label class="fp-group-label letter-spacing-1rem required">开票点</label>
+  <div class="page-com">
+    <img src="./assets/specimen-icon.png" alt="" class="specimenImg" data-bind="visible:data.expType() =='exp'" />
+    <div class="fp-mask" data-bind="visible: data.isPrintVisbleMask">
+      <div class="load-wait">
+        <div class="load-label">开票中</div>
+        <!-- <img src="./assets/diwork/loading.png" class="load-img" alt=""> -->
+      </div>
+    </div>
+    <div class="fp-page animate-fade-in">
+      <div class="yb-options-bar yb-options-back" data-bind="visible: data.fromPage() !== '' && data.fromParam() !== 'docking-detail' && data.fromParam() !== 'uninvoicement' ">
+        <div class="btn btn-default" data-bind="click: function(){ methods.cancelPage(); }">返回</div>
+      </div>
+      <div class="fp-page-header" data-bind="enableAll:data.isPageEnable() && data.isorgstop()">
+        <div class="fp-row">
+          <div class="fp-form-group">
+            <!-- 开票点组件 glue -->
+            <span class="fp-group-label letter-spacing-1rem required" data-bind="text: data.orgName, css: {'text-indent-w1': data.orgName() == '开票点'}"></span>
+            <div class="fp-form-control-container" id='hand-invoice-site-glue'></div>
+            <!-- <label class="fp-group-label letter-spacing-1rem required">开票点</label>
 				<div class="fp-form-control-container">
 					<select class="fp-form-control" auto-const-id="hand-invoice-organization" style="display: inline-block;"
 						data-bind="
@@ -35,13 +33,11 @@
 						>
 					</select>
 				</div> -->
-      </div>
-      <div class="fp-form-group"
-        data-bind="visible: (data.fplx() == '1'|| data.fplx() == '2' || data.fplx() == '3' || data.fplx() == '4') && data.projectNameList().length >= 2 && data.specialSonFplx() != '_NCPSG'">
-        <label class="fp-group-label letter-spacing-1rem">项目名称</label>
-        <div class="fp-form-control-container">
-          <select class="fp-form-control" auto-const-id="hand-invoice-project-list" style="display: inline-block;"
-            data-bind="
+          </div>
+          <div class="fp-form-group" data-bind="visible: (data.fplx() == '1'|| data.fplx() == '2' || data.fplx() == '3' || data.fplx() == '4') && data.projectNameList().length >= 2 && data.specialSonFplx() != '_NCPSG'">
+            <label class="fp-group-label letter-spacing-1rem">项目名称</label>
+            <div class="fp-form-control-container">
+              <select class="fp-form-control" auto-const-id="hand-invoice-project-list" style="display: inline-block;" data-bind="
 								options: data.projectNameList,
 								select2value: data.selectedProjectName,
 								pluginOption: {
@@ -51,128 +47,109 @@
 								optionsText: 'projectName',
 								optionsValue: 'projectName',
 								optionsAfterRender: methods.setOptionTitle">
-          </select>
-          <span class="fp-yellow"
-            data-bind="visible: data.selectedProjectName() == '' || data.selectedProjectName() == '请选择'">是否录入项目名称</span>
-        </div>
-      </div>
-      <div class="fp-form-group fp-form-group-kce" data-bind="visible: data.isVisibleKce">
-        <input type="checkbox" class="filled-in" id="lable_kce"
-          data-bind="checked: data.isKce, attr: {'disabled': data.einvoiceapply.zsfs() == '2'}">
-        <label for="lable_kce" auto-const-id="hand-invoice-balance"
-          class="fp-group-label letter-spacing-1rem">差额开票</label>
-      </div>
-      <div class="fp-form-group"
-        data-bind="visible: (data.fplx() == '1' && data.isKce() && data.specialSonFplx() != '_NCPSG') || (data.fplx() == '3' && data.isKce() && data.specialSonFplx() != '_NCPSG')">
-        <label class="fp-group-label letter-spacing-1rem required">扣除额</label>
-        <div class="fp-form-control-container">
-          <input type="text" class="fp-form-control" auto-const-id="hand-invoice-balance-text" data-bind="
+              </select>
+              <span class="fp-yellow" data-bind="visible: data.selectedProjectName() == '' || data.selectedProjectName() == '请选择'">是否录入项目名称</span>
+            </div>
+          </div>
+          <div class="fp-form-group fp-form-group-kce" data-bind="visible: data.isVisibleKce">
+            <input type="checkbox" class="filled-in" id="lable_kce" data-bind="checked: data.isKce, attr: {'disabled': data.einvoiceapply.zsfs() == '2'}">
+            <label for="lable_kce" auto-const-id="hand-invoice-balance" class="fp-group-label letter-spacing-1rem">差额开票</label>
+          </div>
+          <div class="fp-form-group" data-bind="visible: (data.fplx() == '1' && data.isKce() && data.specialSonFplx() != '_NCPSG') || (data.fplx() == '3' && data.isKce() && data.specialSonFplx() != '_NCPSG')">
+            <label class="fp-group-label letter-spacing-1rem required">扣除额</label>
+            <div class="fp-form-control-container">
+              <input type="text" class="fp-form-control" auto-const-id="hand-invoice-balance-text" data-bind="
 							value: data.einvoiceapplyExt.kce,
 							event: {change: methods.kceChangeFn}
 						">
-        </div>
-      </div>
-      <div class="fp-form-group">
-        <label class="fp-group-label letter-spacing-1rem">折扣合计额</label>
-        <label class="fp-group-label letter-spacing-1rem"
-          data-bind="text: data.hasTax() ? data.hsZkeAcount:data.bhsZkeAccount"></label>
-        <!-- <div class="fp-form-control-container">
+            </div>
+          </div>
+          <div class="fp-form-group">
+            <label class="fp-group-label letter-spacing-1rem">折扣合计额</label>
+            <label class="fp-group-label letter-spacing-1rem" data-bind="text: data.hasTax() ? data.hsZkeAcount:data.bhsZkeAccount"></label>
+            <!-- <div class="fp-form-control-container">
           <input type="text" class="fp-form-control" style="width:180px;text-align: right; background-color: #fff"
             data-bind="
                 value: data.hasTax() ? data.hsZkeAcount:data.bhsZkeAccount,
                 enable: false
               ">
         </div> -->
-      </div>
-      <div class="yb-options-bar-container">
-        <div class="yb-options-bar">
-          <div class="btn btn-default js-hand-invoice-add-remarks" auto-const-id="hand-invoice-add-remarks"
-            data-bind="click: methods.customRemarkToggleFn">
-            <span>备注信息</span>
           </div>
-          <div class="btn btn-default" auto-const-id="hand-invoice-mutiple-discount" data-bind="
+          <div class="yb-options-bar-container">
+            <div class="yb-options-bar">
+              <div class="btn btn-default js-hand-invoice-add-remarks" auto-const-id="hand-invoice-add-remarks" data-bind="click: methods.customRemarkToggleFn">
+                <span>备注信息</span>
+              </div>
+              <div class="btn btn-default" auto-const-id="hand-invoice-mutiple-discount" data-bind="
 					visible: data.isMultiZkBtnShow && !data.isKce(),
 					event: {
 						mousedown: methods.multiZk
 					}
 				">
-            <span>多行折扣</span>
-          </div>
-          <div class="btn btn-default" auto-const-id="hand-invoice-show-book" data-bind="click: function(){
+                <span>多行折扣</span>
+              </div>
+              <div class="btn btn-default" auto-const-id="hand-invoice-show-book" data-bind="click: function(){
 					data.isPageEnable() && methods.showBookingInfo(true);
 				}">
-            <span>开票信息</span>
-          </div>
-          <!-- 精准提示 -->
-          <div id="accuratePrompt"
-            data-bind="visible: data.isShowLaw() == 'true' && (data.curPage() == '1' || data.curPage() == '3' || data.curPage() == '4' || data.curPage() == '1_NCPSG')">
+                <span>开票信息</span>
+              </div>
+              <!-- 精准提示 -->
+              <div id="accuratePrompt" data-bind="visible: data.isShowLaw() == 'true' && (data.curPage() == '1' || data.curPage() == '3' || data.curPage() == '4' || data.curPage() == '1_NCPSG')">
 
-          </div>
+              </div>
 
-          <!--备注信息-->
-          <div class="fp-cRemark-content" data-bind="
+              <!--备注信息-->
+              <div class="fp-cRemark-content" data-bind="
 						visible: data.isShowCustomRemark,
 						enableAll: data.isPageEnable
 					">
-            <div class="fp-cRemark-bg">
-              <img alt="" src="./assets/MTY-eye-icon.png" data-bind="visible: data.isMTY_eye"
-                style="width: 70px;" />
-              <img alt="" src="./MTY-noeye-icon.png" data-bind="visible: !data.isMTY_eye()"
-                style="width: 70px;" />
+                <div class="fp-cRemark-bg">
+                  <img alt="" src="./assets/MTY-eye-icon.png" data-bind="visible: data.isMTY_eye" style="width: 70px;" />
+                  <img alt="" src="./assets/MTY-noeye-icon.png" data-bind="visible: !data.isMTY_eye()" style="width: 70px;" />
+                </div>
+                <h6>来源单据号</h6>
+                <textarea rows="3" cols="" class="fp-lyid" placeholder="请输入来源单据号" maxlength="100"></textarea>
+                <h6>备注信息</h6>
+                <textarea rows="3" cols="" class="fp-cRemark" onkeyup="value=value.replace(/[\<\>]*/g,'')" placeholder="请输入备注信息 (最多100字)" maxlength="100"></textarea>
+                <!-- ko if: data.fromPage() != 'view' -->
+                <p class="fp-cRemark-num">还可输入<span class="fp-cRemark-charCount" data-bind="text: data.customRemarkCharCount">0</span>字</p>
+                <div class="fp-cRemark-btns">
+                  <span class="button default" auto-const-id="hand-invoice-save-remarks" data-bind="click: function() {methods.zdybzSaveBtn({isSave:true})}">保存</span>
+                </div>
+                <!-- /ko -->
+              </div>
             </div>
-            <h6>来源单据号</h6>
-            <textarea rows="3" cols="" class="fp-lyid" placeholder="请输入来源单据号" maxlength="100"></textarea>
-            <h6>备注信息</h6>
-            <textarea rows="3" cols="" class="fp-cRemark" onkeyup="value=value.replace(/[\<\>]*/g,'')"
-              placeholder="请输入备注信息 (最多100字)" maxlength="100"></textarea>
-            <!-- ko if: data.fromPage() != 'view' -->
-            <p class="fp-cRemark-num">还可输入<span class="fp-cRemark-charCount"
-                data-bind="text: data.customRemarkCharCount">0</span>字</p>
-            <div class="fp-cRemark-btns">
-              <span class="button default" auto-const-id="hand-invoice-save-remarks"
-                data-bind="click: function() {methods.zdybzSaveBtn({isSave:true})}">保存</span>
-            </div>
-            <!-- /ko -->
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- end .fp-page-header -->
-  <div class="fp-page-content">
-    <div class="fp-seal-container">
-      <!--<div class="mobile-booking-container"  data-bind="enableAll:data.isPageEnable, visible: data.isBookingShow">
+      <!-- end .fp-page-header -->
+      <div class="fp-page-content">
+        <div class="fp-seal-container">
+          <!--<div class="mobile-booking-container"  data-bind="enableAll:data.isPageEnable, visible: data.isBookingShow">
 				<a class="mobile-booking"  auto-const-id="hand-invoice-show-book" data-bind="click: function(){
 					data.isPageEnable() && methods.showBookingInfo(true);
 				}"></a>
 			</div>-->
-      <div class="fp-seal" data-bind="style:{width:data.sealWidth}">
-        <!-- ko if: (data.fplx() == 1 || data.fplx() == 3) && data.specialSonFplx() == '_NCPSG' -->
-        <div class="shougou">收购</div>
-        <!-- /ko -->
-        <!-- ko if: data.fplx() == 8 || data.fplx() == 10 || data.fplx() == 11-->
-        <div class="shougou">成品油</div>
-        <!-- /ko -->
-        <!-- ko if: data.fplx() == 4 && data.specialSonFplx() == '_JDC'-->
-        <div class="shougou">机动车</div>
-        <!-- /ko -->
-        <div class="fp-name letter-spacing-small" data-bind="text:data.areaNameView">北京增值税普通发票</div>
-        <div class="fp-double-line"></div>
-        <div class="fp-name letter-spacing-middle"></div>
-        <div class="fp-seal-img" data-bind="style:{left:data.sealImgLeft}">
-          <img alt="" src="./static/seal/BEIJING.png" data-bind="attr:{ src: data.areaSealUrl }">
-        </div>
-      </div>
-      <!-- ko if: (data.fplx() == 3 || data.fplx() == 4) && data.specialSonFplx() != '_JDC'-->
-      <div class="fp-form-group fp-form-group-kce fp-form-group-goodList">
-        <input type="checkbox" class="filled-in" id="goodsListCheck" data-bind="checked: data.isCheckGoodList, attr: {'disabled': data.autoCheckGoodList},event:{
+          <div class="fp-seal" data-bind="style:{width:data.sealWidth}">
+            <!-- ko if: (data.fplx() == 1 || data.fplx() == 3) && data.specialSonFplx() == '_NCPSG' -->
+           
+            <!-- /ko -->
+            <div class="fp-name letter-spacing-small" data-bind="text:data.areaNameView">北京增值税普通发票</div>
+            <div class="fp-double-line"></div>
+            <div class="fp-name letter-spacing-middle"></div>
+            <div class="fp-seal-img" data-bind="style:{left:data.sealImgLeft}">
+              <img alt="" src="./assets/seal/BEIJING.png" data-bind="attr:{ src: data.areaSealUrl }">
+            </div>
+          </div>
+          <!-- ko if: (data.fplx() == 3 || data.fplx() == 4) && data.specialSonFplx() != '_JDC'-->
+          <div class="fp-form-group fp-form-group-kce fp-form-group-goodList">
+            <input type="checkbox" class="filled-in" id="goodsListCheck" data-bind="checked: data.isCheckGoodList, attr: {'disabled': data.autoCheckGoodList},event:{
 						change: function(){methods.changeHandleCheckGoodsList(data.isCheckGoodList())}
 					}">
-        <label for="goodsListCheck" auto-const-id="hand-invoice-balance" class="fp-group-label letter-spacing-1rem"
-          style="padding-left: 20px">销货清单</label>
-      </div>
-      <!--/ko-->
-      <!--<div class="fp-custom-remark-container">
+            <label for="goodsListCheck" auto-const-id="hand-invoice-balance" class="fp-group-label letter-spacing-1rem" style="padding-left: 20px">销货清单</label>
+          </div>
+          <!--/ko-->
+          <!--<div class="fp-custom-remark-container">
 				<span class="button default multiZk" auto-const-id="hand-invoice-mutiple-discount" data-bind="
 					visible: data.isMultiZkBtnShow,
 					event: {
@@ -190,8 +167,8 @@
 					"
 				>
 					<div class="fp-cRemark-bg">
-						<img alt="" src="../../assets/MTY-eye-icon.png" data-bind="visible: data.isMTY_eye" style="width: 70px;"/>
-						<img alt="" src="../../assets/MTY-noeye-icon.png" data-bind="visible: !data.isMTY_eye()" style="width: 70px;"/>
+						<img alt="" src="./assets/MTY-eye-icon.png" data-bind="visible: data.isMTY_eye" style="width: 70px;"/>
+						<img alt="" src="./assets/MTY-noeye-icon.png" data-bind="visible: !data.isMTY_eye()" style="width: 70px;"/>
 					</div>
 					<h6>备注信息</h6>
 					<textarea
@@ -208,80 +185,78 @@
 					</div>
 				</div>
 			</div>-->
-      <div class="fp-NO-container" data-bind="visible: data.isNeedFpDmFpHm() && !data.isSegmentPreview()">
-        <div class="fp-form-group">
-          <span class="fp-group-addon"></span>
-          <label class="fp-group-label">发票代码:</label>
-          <!-- ko if: data.isPaperView() -->
-          <!-- ko if: data.isPaperViewLoading() -->
-          <img src="../../assets/diwork/loading.png" width="18">
-          <p class="fp-form-control-static">获取中</p>
-          <!-- /ko -->
-          <!-- ko if: !data.isPaperViewLoading() && !!data.paperViewError() -->
-          <img src="../../assets/icons/line2line.png" width="70">
-          <!-- /ko -->
-          <!-- /ko -->
-          <!-- ko if: !data.isPaperViewLoading() && !data.paperViewError() -->
-          <p class="fp-form-control-static" data-bind="text: data.einvoiceapply.fpDm"></p>
-          <!-- /ko -->
-        </div>
-        <div class="fp-form-group">
-          <span class="fp-group-addon"></span>
-          <label class="fp-group-label">发票号码:</label>
-          <!-- ko if: data.isPaperView() -->
-          <!-- ko if: data.isPaperViewLoading() -->
-          <img src="../../assets/diwork/loading.png" width="18">
-          <p class="fp-form-control-static">获取中</p>
-          <!-- /ko -->
-          <!-- ko if: !data.isPaperViewLoading() && !!data.paperViewError() -->
-          <img src="../../assets/icons/line2line.png" width="70">
-          <!-- /ko -->
-          <!-- /ko -->
-          <!-- ko if: !data.isPaperViewLoading() && !data.paperViewError() -->
-          <p class="fp-form-control-static" data-bind="text: data.einvoiceapply.fpHm"></p>
-          <!-- /ko -->
-        </div>
+          <div class="fp-NO-container" data-bind="visible: data.isNeedFpDmFpHm() && !data.isSegmentPreview()">
+            <div class="fp-form-group">
+              <span class="fp-group-addon"></span>
+              <label class="fp-group-label">发票代码:</label>
+              <!-- ko if: data.isPaperView() -->
+              <!-- ko if: data.isPaperViewLoading() -->
+              <!-- <img src="./assets/g.png" width="18"> -->
+              <p class="fp-form-control-static">获取中</p>
+              <!-- /ko -->
+              <!-- ko if: !data.isPaperViewLoading() && !!data.paperViewError() -->
+              <!-- <img src="./assets/icons/line2line.png" width="70"> -->
+              <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: !data.isPaperViewLoading() && !data.paperViewError() -->
+              <p class="fp-form-control-static" data-bind="text: data.einvoiceapply.fpDm"></p>
+              <!-- /ko -->
+            </div>
+            <div class="fp-form-group">
+              <span class="fp-group-addon"></span>
+              <label class="fp-group-label">发票号码:</label>
+              <!-- ko if: data.isPaperView() -->
+              <!-- ko if: data.isPaperViewLoading() -->
+              <!-- <img src="./assets/g.png" width="18"> -->
+              <p class="fp-form-control-static">获取中</p>
+              <!-- /ko -->
+              <!-- ko if: !data.isPaperViewLoading() && !!data.paperViewError() -->
+              <img src="./assets/icons/line2line.png" width="70">
+              <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: !data.isPaperViewLoading() && !data.paperViewError() -->
+              <p class="fp-form-control-static" data-bind="text: data.einvoiceapply.fpHm"></p>
+              <!-- /ko -->
+            </div>
 
-        <!-- ko if: data.isPaperView() && !data.isPaperViewLoading() -->
-        <div style="margin-left:3px;width: 202px;">
-          <div style="color: red;" data-bind="
+            <!-- ko if: data.isPaperView() && !data.isPaperViewLoading() -->
+            <div style="margin-left:3px;width: 202px;">
+              <div style="color: red;" data-bind="
 							text: data.paperViewError,
 							visible: !!data.paperViewError()
 						">获取失败</div>
-          <a style="cursor: pointer;" auto-const-id="hand-invoice-regain" data-bind="
+              <a style="cursor: pointer;" auto-const-id="hand-invoice-regain" data-bind="
 							click: methods.getFpDmFpHmAglin,
 							visible: !data.paperViewError()
 						">重新获取</a>
-        </div>
-        <!-- /ko -->
+            </div>
+            <!-- /ko -->
 
-        <div class="fp-form-group" data-bind="visible: !!data.printTimeoutErrInfo()">
-          <span class="fp-group-addon"></span>
-          <p class="fp-form-control-static" style="color: red;">网络连接异常，<a
-              data-bind="attr:{'title': data.printTimeoutErrInfo()}">可能原因</a></p>
+            <div class="fp-form-group" data-bind="visible: !!data.printTimeoutErrInfo()">
+              <span class="fp-group-addon"></span>
+              <p class="fp-form-control-static" style="color: red;">网络连接异常，<a data-bind="attr:{'title': data.printTimeoutErrInfo()}">可能原因</a></p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="fp-unit-purchase">
-      <table class="table-gmf-header">
-        <tbody data-bind="enableAll:data.isPageEnable">
-          <tr id="gmfInfoTd">
-            <td class="table-gmfmc">购买方</td>
-            <td class="table-td">
-              <div class="fp-row purchaseLess">
-                <div class="fp-form-group">
-                  <span class="fp-group-addon" onselectstart="return false">*</span>
-                  <label class="fp-group-label">名<span class="filler"></span>称：</label>
-                  <div class="fp-form-control-container gmfMc-typeahead">
-                    <!-- ko if: data.specialSonFplx() == '_NCPSG' -->
-                    <p class="fc-black" style="width: 40rem;line-height: 30px;" data-bind="
+        <div class="fp-unit-purchase">
+          <table class="table-gmf-header">
+            <tbody data-bind="enableAll:data.isPageEnable">
+              <tr id="gmfInfoTd">
+                <td class="table-gmfmc">购买方</td>
+                <td class="table-td">
+                  <div class="fp-row purchaseLess">
+                    <div class="fp-form-group">
+                      <span class="fp-group-addon" onselectstart="return false">*</span>
+                      <label class="fp-group-label">名<span class="filler"></span>称：</label>
+                      <div class="fp-form-control-container gmfMc-typeahead">
+                        <!-- ko if: data.specialSonFplx() == '_NCPSG' -->
+                        <p class="fc-black" style="width: 40rem;line-height: 30px;" data-bind="
 									text: data.einvoiceapply.xsfMc,
 									attr:{'title': data.einvoiceapply.xsfMc}"></p>
-                    <!-- /ko -->
-                    <!-- ko if: data.specialSonFplx() !== '_NCPSG'-->
-                    <!-- 不能加maxlength属性，有CRC扫码枪转换 -->
-                    <input id="gmfMc-input" type="text" class="fp-form-control gmfMc" autocomplete="off"
-                      auto-const-id="hand-invoice-gmfmc" data-bind="
+                        <!-- /ko -->
+                        <!-- ko if: data.specialSonFplx() !== '_NCPSG'-->
+                        <!-- 不能加maxlength属性，有CRC扫码枪转换 -->
+                        <input id="gmfMc-input" type="text" class="fp-form-control gmfMc" autocomplete="off" auto-const-id="hand-invoice-gmfmc" data-bind="
 										value: data.einvoiceapply.gmfMc,
 										valueUpdate: 'afterkeydown',
 										event:{
@@ -290,14 +265,14 @@
 											}
 										}
 									" data-auto="gmfMc">
-                    <div class="gmfMc-search-empty">
-                      <i data-bind="visible: data.isShowEmpty, click: methods.emptyKeyWord"></i>
-                    </div>
-                    <!-- 常用联系人glue dom 勿删 laingwf-->
-                    <div id="active-customers-glue">
-                    </div>
-                    <!-- 使用input，保证enableAll生效  -->
-                    <!-- <input
+                        <div class="gmfMc-search-empty">
+                          <i data-bind="visible: data.isShowEmpty, click: methods.emptyKeyWord"></i>
+                        </div>
+                        <!-- 常用联系人glue dom 勿删 laingwf-->
+                        <div id="active-customers-glue">
+                        </div>
+                        <!-- 使用input，保证enableAll生效  -->
+                        <!-- <input
 									type="button"
 									tabIndex="-1"
 									id="customerBtn"
@@ -311,52 +286,45 @@
 								<label for="customerBtn" class="icn-staff-document"
 								       data-toggle="tooltip"
 								       data-original-title="客户档案"></label> -->
-                    <div class="auto-complete">
-                      <div data-bind="visible: data.showLocalComplete()">
-                        <div class="fs-small fc-text group-name complete-row">历史</div>
-                        <div data-bind="foreach: data.localComplete()">
-                          <div class="fs-mid complete-row complete-item" auto-const-id="hand-invoice-history-gmfmc"
-                            data-bind="text: gmf_mc,
+                        <div class="auto-complete">
+                          <div data-bind="visible: data.showLocalComplete()">
+                            <div class="fs-small fc-text group-name complete-row">历史</div>
+                            <div data-bind="foreach: data.localComplete()">
+                              <div class="fs-mid complete-row complete-item" auto-const-id="hand-invoice-history-gmfmc" data-bind="text: gmf_mc,
 											 event: {'mousedown': function() {$parent.methods.completeClick(gmf_mc)}}"></div>
-                        </div>
-                      </div>
-                      <div data-bind="visible: data.showNetComplete()">
-                        <div class="fs-small fc-text group-name complete-row">推荐</div>
-                        <div data-bind="foreach: data.netComplete()">
-                          <div class="fs-mid complete-row complete-item" auto-const-id="hand-invoice-recommend-gmfmc"
-                            data-bind="text: corpname,
+                            </div>
+                          </div>
+                          <div data-bind="visible: data.showNetComplete()">
+                            <div class="fs-small fc-text group-name complete-row">推荐</div>
+                            <div data-bind="foreach: data.netComplete()">
+                              <div class="fs-mid complete-row complete-item" auto-const-id="hand-invoice-recommend-gmfmc" data-bind="text: corpname,
 											 event: {'mousedown': function() {$parent.methods.completeClick(corpname, companyid)}}"></div>
+                            </div>
+                          </div>
                         </div>
+                        <!-- /ko -->
                       </div>
                     </div>
-                    <!-- /ko -->
-                  </div>
-                </div>
-                <div class="fp-form-group">
-                  <span class="fp-group-addon">&nbsp;</span>
-                  <label class="fp-group-label  purchaseSwitch" auto-const-id="hand-invoice-slide-up" data-bind="click:methods.purchaseSwitchFn,text:data.isPurchaseMore()?'收起':'更多',
+                    <div class="fp-form-group">
+                      <span class="fp-group-addon">&nbsp;</span>
+                      <label class="fp-group-label  purchaseSwitch" auto-const-id="hand-invoice-slide-up" data-bind="click:methods.purchaseSwitchFn,text:data.isPurchaseMore()?'收起':'更多',
 									css:data.isPurchaseMore()?'arrowUp':'arrowDown'">收起</label>
-                </div>
-              </div>
-              <div class="fp-row purchaseLess">
-                <div class="fp-form-group">
-                  <span class="fp-group-addon"
-                    data-bind="visible: data.fplx() == '4' || data.fplx() == '2' || data.fplx() == '11'"
-                    onselectstart="return false">*</span>
-                  <span class="fp-group-addon fp-group-addon-hide"
-                    data-bind="visible: data.fplx() != '4' && data.fplx() != '2' && data.fplx() != '11'"
-                    onselectstart="return false">*</span>
-                  <label class="fp-group-label">纳税人识别号：</label>
-                  <div class="fp-form-control-container">
-                    <!-- ko if: data.specialSonFplx() == '_NCPSG' -->
-                    <p class="fc-black" style="line-height: 30px;" data-bind="
+                    </div>
+                  </div>
+                  <div class="fp-row purchaseLess">
+                    <div class="fp-form-group">
+                      <span class="fp-group-addon" data-bind="visible: data.fplx() == '4' || data.fplx() == '2' || data.fplx() == '11'" onselectstart="return false">*</span>
+                      <span class="fp-group-addon fp-group-addon-hide" data-bind="visible: data.fplx() != '4' && data.fplx() != '2' && data.fplx() != '11'" onselectstart="return false">*</span>
+                      <label class="fp-group-label">纳税人识别号：</label>
+                      <div class="fp-form-control-container">
+                        <!-- ko if: data.specialSonFplx() == '_NCPSG' -->
+                        <p class="fc-black" style="line-height: 30px;" data-bind="
 								 			text: data.einvoiceapply.xsfNsrsbh,
 								 			attr:{'title': data.einvoiceapply.xsfNsrsbh}
 								 		"></p>
-                    <!-- /ko -->
-                    <!-- ko if: data.specialSonFplx() !== '_NCPSG'-->
-                    <input tabIndex="-1" type="text" auto-const-id="hand-invoice-special-fplx"
-                      class="fp-form-control nsrsbh" onblur="this.value=this.value.toUpperCase()" data-bind="
+                        <!-- /ko -->
+                        <!-- ko if: data.specialSonFplx() !== '_NCPSG'-->
+                        <input tabIndex="-1" type="text" auto-const-id="hand-invoice-special-fplx" class="fp-form-control nsrsbh" onblur="this.value=this.value.toUpperCase()" data-bind="
 										value:data.einvoiceapply.gmfNsrsbh,
 										enable: !data.loadingNsrsbh(),
 										attr: {'disabled': data.isFromUninoice() == true},
@@ -368,36 +336,31 @@
 											}
 										}
 									">
-                    <!-- /ko -->
+                        <!-- /ko -->
+                      </div>
+                    </div>
+                    <div class="fp-form-group" data-bind="visible: data.showNsrsbhNote()">
+                      <span class="fp-group-addon">&nbsp;</span>
+                      <label class="fp-group-label nsrsbh-info"><img src="./assets/nsrsbh-info.png" alt=""><span data-bind="text: data.nsrsbhNote"></span></label>
+                    </div>
+                    <div class="fp-form-group" data-bind="visible: data.showNsrsbhError()">
+                      <span class="fp-group-addon">&nbsp;</span>
+                      <label class="fp-group-label nsrsbh-warn"><img src="./assets/nsrsbh-warn.png" alt=""><span data-bind="text: data.nsrsbhError"></span></label>
+                    </div>
                   </div>
-                </div>
-                <div class="fp-form-group" data-bind="visible: data.showNsrsbhNote()">
-                  <span class="fp-group-addon">&nbsp;</span>
-                  <label class="fp-group-label nsrsbh-info"><img src="../../assets/nsrsbh-info.png" alt=""><span
-                      data-bind="text: data.nsrsbhNote"></span></label>
-                </div>
-                <div class="fp-form-group" data-bind="visible: data.showNsrsbhError()">
-                  <span class="fp-group-addon">&nbsp;</span>
-                  <label class="fp-group-label nsrsbh-warn"><img src="../../assets/nsrsbh-warn.png" alt=""><span
-                      data-bind="text: data.nsrsbhError"></span></label>
-                </div>
-              </div>
-              <div class="fp-row fp-row-line" data-bind="visible:data.isPurchaseMore">
-                <div class="fp-form-group">
-                  <span class="fp-group-addon"
-                    data-bind="visible: data.fplx() == '4' || data.fplx() == '2' || data.fplx() == '11'">*</span>
-                  <span class="fp-group-addon fp-group-addon-hide"
-                    data-bind="visible: data.fplx() != '4' && data.fplx() != '2' && data.fplx() != '11'">*</span>
-                  <label class="fp-group-label">地&nbsp;&nbsp;址、电&nbsp;话：</label>
-                  <!-- ko if: data.specialSonFplx() == '_NCPSG' -->
-                  <p class="fc-black" style="line-height: 30px;" data-bind="
+                  <div class="fp-row fp-row-line" data-bind="visible:data.isPurchaseMore">
+                    <div class="fp-form-group">
+                      <span class="fp-group-addon" data-bind="visible: data.fplx() == '4' || data.fplx() == '2' || data.fplx() == '11'">*</span>
+                      <span class="fp-group-addon fp-group-addon-hide" data-bind="visible: data.fplx() != '4' && data.fplx() != '2' && data.fplx() != '11'">*</span>
+                      <label class="fp-group-label">地&nbsp;&nbsp;址、电&nbsp;话：</label>
+                      <!-- ko if: data.specialSonFplx() == '_NCPSG' -->
+                      <p class="fc-black" style="line-height: 30px;" data-bind="
 								text: data.einvoiceapply.xsfDzdh,
 								attr:{'title': data.einvoiceapply.xsfDzdh}"></p>
-                  <!-- /ko -->
-                  <!-- ko if: data.specialSonFplx() !== '_NCPSG'-->
-                  <div class="fp-form-control-container fp-form-control-container-margin">
-                    <input tabIndex="-1" type="text" class="fp-form-control valid-nsrsbh"
-                      auto-const-id="hand-invoice-normal-gmfDzdh" data-bind="
+                      <!-- /ko -->
+                      <!-- ko if: data.specialSonFplx() !== '_NCPSG'-->
+                      <div class="fp-form-control-container fp-form-control-container-margin">
+                        <input tabIndex="-1" type="text" class="fp-form-control valid-nsrsbh" auto-const-id="hand-invoice-normal-gmfDzdh" data-bind="
 										value: data.einvoiceapply.gmfDzdh,
 										event: {
 											paste: function(d, e){
@@ -405,24 +368,21 @@
 											}
 										}
 									">
-                  </div>
-                  <!-- /ko -->
-                </div>
-                <div class="fp-form-group">
-                  <span class="fp-group-addon"
-                    data-bind="visible: data.fplx() == '4' || data.fplx() == '2' || data.fplx() == '11'">*</span>
-                  <span class="fp-group-addon fp-group-addon-hide"
-                    data-bind="visible: data.fplx() != '4' && data.fplx() != '2' && data.fplx() != '11'">*</span>
-                  <label class="fp-group-label">开户行及账号：</label>
-                  <!-- ko if: data.specialSonFplx() == '_NCPSG' -->
-                  <p class="fc-black" style="line-height: 30px;" data-bind="
+                      </div>
+                      <!-- /ko -->
+                    </div>
+                    <div class="fp-form-group">
+                      <span class="fp-group-addon" data-bind="visible: data.fplx() == '4' || data.fplx() == '2' || data.fplx() == '11'">*</span>
+                      <span class="fp-group-addon fp-group-addon-hide" data-bind="visible: data.fplx() != '4' && data.fplx() != '2' && data.fplx() != '11'">*</span>
+                      <label class="fp-group-label">开户行及账号：</label>
+                      <!-- ko if: data.specialSonFplx() == '_NCPSG' -->
+                      <p class="fc-black" style="line-height: 30px;" data-bind="
 								text: data.einvoiceapply.xsfYhzh,
 								attr:{'title': data.einvoiceapply.xsfYhzh}"></p>
-                  <!-- /ko -->
-                  <!-- ko if: data.specialSonFplx() !== '_NCPSG'-->
-                  <div class="fp-form-control-container fp-form-control-container-margin">
-                    <input tabIndex="-1" type="text" auto-const-id="hand-invoice-customer-archives"
-                      class="fp-form-control valid-nsrsbh" data-bind="
+                      <!-- /ko -->
+                      <!-- ko if: data.specialSonFplx() !== '_NCPSG'-->
+                      <div class="fp-form-control-container fp-form-control-container-margin">
+                        <input tabIndex="-1" type="text" auto-const-id="hand-invoice-customer-archives" class="fp-form-control valid-nsrsbh" data-bind="
 										value: data.einvoiceapply.gmfYhzh,
 										event: {
 											paste: function(d, e){
@@ -430,21 +390,20 @@
 											}
 										}
 									">
+                      </div>
+                      <!-- /ko -->
+                    </div>
                   </div>
-                  <!-- /ko -->
-                </div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="fp-NO-container fp-NO-section" data-bind="visible: data.isNeedFpDmFpHm() && data.isSegmentPreview()">
-        <div class="fp-form-group fp-section-line">
-          <span class="fp-group-addon"></span>
-          <label class="fp-group-label">发票号段:</label>
-          <div class="fp-form-control-container">
-            <select class="fp-form-control" auto-const-id="hand-invoice-fphm-End" style="display: inline-block;"
-              data-bind="
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="fp-NO-container fp-NO-section" data-bind="visible: data.isNeedFpDmFpHm() && data.isSegmentPreview()">
+            <div class="fp-form-group fp-section-line">
+              <span class="fp-group-addon"></span>
+              <label class="fp-group-label">发票号段:</label>
+              <div class="fp-form-control-container">
+                <select class="fp-form-control" auto-const-id="hand-invoice-fphm-End" style="display: inline-block;" data-bind="
 							options: data.fphmSegmentList,
 							select2value: data.selectedFphmEnd,
 							pluginOption: {
@@ -453,102 +412,99 @@
 							optionsText: 'fphmSegment',
 							optionsValue: 'fpHmEnd',
 							optionsAfterRender: methods.setOptionTitle">
-            </select>
-          </div>
-        </div>
-        <div class="fp-form-group fp-section fp-section-fpdm">
-          <span class="fp-group-addon"></span>
-          <label class="fp-group-label">发票代码:</label>
-          <!-- ko if: data.isSegmentPreview() -->
-          <!-- ko if: data.isPaperViewLoading() -->
-          <img src="../../assets/diwork/loading.png" width="18">
-          <p class="fp-form-control-static">获取中</p>
-          <!-- /ko -->
-          <!-- ko if: !data.isPaperViewLoading() && !!data.paperViewError() -->
-          <img src="../../assets/icons/line2line.png" width="70">
-          <!-- /ko -->
-          <!-- /ko -->
-          <!-- ko if: !data.isPaperViewLoading() && !data.paperViewError() -->
-          <p class="fp-form-control-static" data-bind="text: data.einvoiceapply.fpDm"></p>
-          <!-- /ko -->
-        </div>
-        <div class="fp-form-group fp-section fp-section-fphm">
-          <span class="fp-group-addon"></span>
-          <label class="fp-group-label">发票号码:</label>
-          <!-- ko if: data.isSegmentPreview() -->
-          <!-- ko if: data.isPaperViewLoading() -->
-          <img src="../../assets/diwork/loading.png" width="18">
-          <p class="fp-form-control-static">获取中</p>
-          <!-- /ko -->
-          <!-- ko if: !data.isPaperViewLoading() && !!data.paperViewError() -->
-          <img src="../../assets/icons/line2line.png" width="70">
-          <!-- /ko -->
-          <!-- /ko -->
-          <!-- ko if: !data.isPaperViewLoading() && !data.paperViewError() -->
-          <p class="fp-form-control-static" data-bind="text: data.einvoiceapply.fpHm"></p>
-          <!-- /ko -->
-        </div>
-        <!-- ko if: data.isSegmentPreview() && !data.isPaperViewLoading() -->
-        <div style="margin-left:3px;width: 202px;">
-          <div style="color: red;" data-bind="
+                </select>
+              </div>
+            </div>
+            <div class="fp-form-group fp-section fp-section-fpdm">
+              <span class="fp-group-addon"></span>
+              <label class="fp-group-label">发票代码:</label>
+              <!-- ko if: data.isSegmentPreview() -->
+              <!-- ko if: data.isPaperViewLoading() -->
+              <!-- <img src="./assets/g.png" width="18"> -->
+              <p class="fp-form-control-static">获取中</p>
+              <!-- /ko -->
+              <!-- ko if: !data.isPaperViewLoading() && !!data.paperViewError() -->
+              <img src="./assets/icons/line2line.png" width="70">
+              <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: !data.isPaperViewLoading() && !data.paperViewError() -->
+              <p class="fp-form-control-static" data-bind="text: data.einvoiceapply.fpDm"></p>
+              <!-- /ko -->
+            </div>
+            <div class="fp-form-group fp-section fp-section-fphm">
+              <span class="fp-group-addon"></span>
+              <label class="fp-group-label">发票号码:</label>
+              <!-- ko if: data.isSegmentPreview() -->
+              <!-- ko if: data.isPaperViewLoading() -->
+              <!-- <img src="./assets/diwork/loading.png" width="18"> -->
+              <p class="fp-form-control-static">获取中</p>
+              <!-- /ko -->
+              <!-- ko if: !data.isPaperViewLoading() && !!data.paperViewError() -->
+              <img src="./assets/icons/line2line.png" width="70">
+              <!-- /ko -->
+              <!-- /ko -->
+              <!-- ko if: !data.isPaperViewLoading() && !data.paperViewError() -->
+              <p class="fp-form-control-static" data-bind="text: data.einvoiceapply.fpHm"></p>
+              <!-- /ko -->
+            </div>
+            <!-- ko if: data.isSegmentPreview() && !data.isPaperViewLoading() -->
+            <div style="margin-left:3px;width: 202px;">
+              <div style="color: red;" data-bind="
 							text: data.paperViewError,
 							visible: !!data.paperViewError()
 						">获取失败</div>
-          <a style="cursor: pointer;" auto-const-id="hand-invoice-regain-fpdm" data-bind="
+              <a style="cursor: pointer;" auto-const-id="hand-invoice-regain-fpdm" data-bind="
 							click: methods.getFpDmFpHmAglin,
 							visible: !data.paperViewError()
 						">重新获取</a>
+            </div>
+            <!-- /ko -->
+            <div class="fp-form-group" data-bind="visible: !!data.printTimeoutErrInfo()">
+              <span class="fp-group-addon"></span>
+              <p class="fp-form-control-static" style="color: red;">网络连接异常，<a data-bind="attr:{'title': data.printTimeoutErrInfo()}">可能原因</a></p>
+            </div>
+          </div>
+          <!-- end .fp-purchase-content -->
         </div>
-        <!-- /ko -->
-        <div class="fp-form-group" data-bind="visible: !!data.printTimeoutErrInfo()">
-          <span class="fp-group-addon"></span>
-          <p class="fp-form-control-static" style="color: red;">网络连接异常，<a
-              data-bind="attr:{'title': data.printTimeoutErrInfo()}">可能原因</a></p>
-        </div>
-      </div>
-      <!-- end .fp-purchase-content -->
-    </div>
-    <!-- end .fp-unit-purchase -->
-    <div class="fp-invoice-order">
-      <div></div>
-      <div class="fp-order-body">
-        <table class="fp-order-table" style="width:100%;" cellpadding=0 cellspacing=0>
-          <thead>
-            <tr>
-              <th style="width:52px;" class="col-xh">序号</th>
-              <th style="width: 22%;">项目名称</th>
-              <th style="width:10%;">规格型号</th>
-              <th style="width:10%;">单位</th>
-              <th style="width:10%;">数量</th>
-              <th style="width:10%;" class="xmdjTh">
-                <span class="xmdjThTitle">单价</span>
-                <span class="switch fp-tax-switch">
-                  <label>
-                    <input tabIndex="-1" type="checkbox" auto-const-id="hand-invoice-money-included"
-                      data-bind="checked:data.hasTax, event: {change: methods.saveHasTaxbz}">
-                    <span class="lever">含税</span>
-                  </label>
-                </span>
-              </th>
-              <th style="width:10%;" class="xmjeTh">
-                <span class="xmjeThTitle">金额</span>
-                <span class="switch fp-tax-switch">
-                  <label>
-                    <input tabIndex="-1" type="checkbox" auto-const-id="hand-invoice-tax-included"
-                      data-bind="checked:data.hasTax, event: {change: methods.saveHasTaxbz}">
-                    <span class="lever">含税</span>
-                  </label>
-                </span>
-              </th>
-              <th style="width:7%;">税率</th>
-              <th style="width:7%;">税额</th>
-              <th style="width:7%;">折扣</th>
-              <th style="width:7%;">操作</th>
-            </tr>
-          </thead>
-          <!-- ko if: !data.isBigDatas() && data.selectedOrgId() -->
-          <tbody id="fp-detail-rows" data-bind="foreach: {data:data.einvoiceapplyb,as:'row',afterAdd:methods.afterAdd}">
-            <tr class="ebRow" data-bind="
+        <!-- end .fp-unit-purchase -->
+        <div class="fp-invoice-order">
+          <div></div>
+          <div class="fp-order-body">
+            <table class="fp-order-table" style="width:100%;" cellpadding=0 cellspacing=0>
+              <thead>
+                <tr>
+                  <th style="width:52px;" class="col-xh">序号</th>
+                  <th style="width: 22%;">项目名称</th>
+                  <th style="width:10%;">规格型号</th>
+                  <th style="width:10%;">单位</th>
+                  <th style="width:10%;">数量</th>
+                  <th style="width:10%;" class="xmdjTh">
+                    <span class="xmdjThTitle">单价</span>
+                    <span class="switch fp-tax-switch">
+                      <label>
+                        <input tabIndex="-1" type="checkbox" auto-const-id="hand-invoice-money-included" data-bind="checked:data.hasTax, event: {change: methods.saveHasTaxbz}">
+                        <span class="lever">含税</span>
+                      </label>
+                    </span>
+                  </th>
+                  <th style="width:10%;" class="xmjeTh">
+                    <span class="xmjeThTitle">金额</span>
+                    <span class="switch fp-tax-switch">
+                      <label>
+                        <input tabIndex="-1" type="checkbox" auto-const-id="hand-invoice-tax-included" data-bind="checked:data.hasTax, event: {change: methods.saveHasTaxbz}">
+                        <span class="lever">含税</span>
+                      </label>
+                    </span>
+                  </th>
+                  <th style="width:7%;">税率</th>
+                  <th style="width:7%;">税额</th>
+                  <th style="width:7%;">折扣</th>
+                  <th style="width:7%;">操作</th>
+                </tr>
+              </thead>
+              <!-- ko if: !data.isBigDatas() && data.selectedOrgId() -->
+              <tbody id="fp-detail-rows" data-bind="foreach: {data:data.einvoiceapplyb,as:'row',afterAdd:methods.afterAdd}">
+                <tr class="ebRow" data-bind="
 							enableAll:	row.fphxz()==0 && $parent.data.isPageEnable(),
 							event: {
 								click: function(d){$parent.methods.rowClick(d, $element)},
@@ -556,24 +512,24 @@
 								mouseout:function(data,event) {$parent.methods.hiddenRowIconFn($data,event)}},
 								css: {'discountedTr':row.fphxz()=='1'}
 							">
-              <td class="xuhaoCol">
-                <span class="inputwrap">
-                  <div class="xuhao" data-bind="text:$index()+1"></div>
-                </span>
-              </td>
-              <td class="xmmcCol">
-                <span class="inputwrap">
-                  <span data-bind="visible:!($parent.data.defaultXmmcEnable()),
+                  <td class="xuhaoCol">
+                    <span class="inputwrap">
+                      <div class="xuhao" data-bind="text:$index()+1"></div>
+                    </span>
+                  </td>
+                  <td class="xmmcCol">
+                    <span class="inputwrap">
+                      <span data-bind="visible:!($parent.data.defaultXmmcEnable()),
 								    text: row.xmmc"></span>
-                  <input type="text" class="xmmc xmmcInput j-xmmc" data-bind="value: row.xmmc,valueUpdate:'afterkeydown',
+                      <input type="text" class="xmmc xmmcInput j-xmmc" data-bind="value: row.xmmc,valueUpdate:'afterkeydown',
 									event:{
 										blur:function (data,event) {$parent.methods.xmmcBlur($data, event, $index())},
 										focus:function(data,event) {$parent.methods.setSelectRow($data,event)},
 									},
 								    visible:$parent.data.defaultXmmcEnable()" data-auto="xmmc" />
-                  <!-- 使用input，保证enableAll生效 -->
-                  <input type="button" tabIndex="-1" data-bind="attr:{id: row.hh}" class="materialBtn" />
-                  <label class="icn-yy icn-yy-listwithdots" data-toggle="tooltip" data-bind="
+                      <!-- 使用input，保证enableAll生效 -->
+                      <input type="button" tabIndex="-1" data-bind="attr:{id: row.hh}" class="materialBtn" />
+                      <label class="icn-yy icn-yy-listwithdots" data-toggle="tooltip" data-bind="
 											    attr:{for: row.hh},
 													event: {
 														click: function(data,event){
@@ -586,80 +542,75 @@
 														$parent.data.isPageEnable
 												" data-original-title="商品档案"></label>
 
-                </span>
-              </td>
-              <td>
-                <span class="inputwrap">
-                  <input type="text" class="ggxh"
-                    data-bind="value: row.ggxh,  event:{change: $parent.methods.needComputed}" />
-                </span>
-              </td>
-              <td>
-                <span class="inputwrap">
-                  <!-- 折扣行不显示 -->
-                  <!-- ko if: $root.isCPY() && row.fphxz() != 1 -->
-                  <select class="sl" data-bind="
+                    </span>
+                  </td>
+                  <td>
+                    <span class="inputwrap">
+                      <input type="text" class="ggxh" data-bind="value: row.ggxh,  event:{change: $parent.methods.needComputed}" />
+                    </span>
+                  </td>
+                  <td>
+                    <span class="inputwrap">
+                      <!-- 折扣行不显示 -->
+                      <!-- ko if: $root.isCPY() && row.fphxz() != 1 -->
+                      <select class="sl" data-bind="
 								  		options: $root.cpyDwList,
 								  		value: row.dw,
 								  		optionsText:'name',
 											optionsValue:'value',
 											event:{change: $parent.methods.needComputed}
 								  	">
-                  </select>
-                  <!-- /ko -->
-                  <!-- ko if: $root.isJDC() && row.fphxz() != 1 -->
-                  <span class="text">辆</span>
-                  <!-- /ko -->
-                  <!-- ko if: !$root.isCPY() && !$root.isJDC() -->
-                  <input type="text" class="dw"
-                    data-bind="value: row.dw, event:{change: $parent.methods.needComputed}" />
-                  <!-- /ko -->
-                </span>
-              </td>
-              <td class="xmslCol">
-                <span class="inputwrap">
-                  <input type="text" class="xmsl"
-                    data-bind="value: row.xmsl,event:{change: function (data,event) {$parent.methods.xmslChangeFn($data,event)}}" />
-                </span>
-              </td>
-              <!-- have hasTax  -->
-              <td class="xmhsdjCol" data-bind="visible:$parent.data.hasTax()">
-                <span class="inputwrap">
-                  <input type="text" class="xmhsdj"
-                    data-bind="value: row.xmhsdj,event:{change: function (data,event) {$parent.methods.xmhsdjChangeFn($data,event)}}" />
-                </span>
-              </td>
-              <td class="xmjshjCol" data-bind="visible:$parent.data.hasTax()">
-                <span class="inputwrap">
-                  <input e-type="xmjshj" type="text" class="xmjshj j-xmjshj" data-bind="value: row.xmjshj, valueUpdate: 'afterkeydown',
+                      </select>
+                      <!-- /ko -->
+                      <!-- ko if: $root.isJDC() && row.fphxz() != 1 -->
+                      <span class="text">辆</span>
+                      <!-- /ko -->
+                      <!-- ko if: !$root.isCPY() && !$root.isJDC() -->
+                      <input type="text" class="dw" data-bind="value: row.dw, event:{change: $parent.methods.needComputed}" />
+                      <!-- /ko -->
+                    </span>
+                  </td>
+                  <td class="xmslCol">
+                    <span class="inputwrap">
+                      <input type="text" class="xmsl" data-bind="value: row.xmsl,event:{change: function (data,event) {$parent.methods.xmslChangeFn($data,event)}}" />
+                    </span>
+                  </td>
+                  <!-- have hasTax  -->
+                  <td class="xmhsdjCol" data-bind="visible:$parent.data.hasTax()">
+                    <span class="inputwrap">
+                      <input type="text" class="xmhsdj" data-bind="value: row.xmhsdj,event:{change: function (data,event) {$parent.methods.xmhsdjChangeFn($data,event)}}" />
+                    </span>
+                  </td>
+                  <td class="xmjshjCol" data-bind="visible:$parent.data.hasTax()">
+                    <span class="inputwrap">
+                      <input e-type="xmjshj" type="text" class="xmjshj j-xmjshj" data-bind="value: row.xmjshj, valueUpdate: 'afterkeydown',
 									   			event: {change: function (data,event) {$parent.methods.xmjshjChangeFn($data,event, false)},
 									   					keyup: function (data,event) {$parent.methods.xmjshjKeyupFn($data,event)}}" />
-                </span>
-              </td>
-              <!--  -->
-              <!-- not hasTax -->
-              <td class="xmdjCol" data-bind="visible:$parent.data.hasTax()?false:true">
-                <span class="inputwrap">
-                  <input type="text" class="xmdj"
-                    data-bind="value: row.xmdj,event: {change: function (data,event) {$parent.methods.xmdjChangeFn($data,event)}}" />
-                </span>
-              </td>
-              <td class="xmjeCol" data-bind="visible:$parent.data.hasTax()?false:true">
-                <span class="inputwrap">
-                  <input type="text" class="xmje j-xmje" data-bind="value: row.xmje,
+                    </span>
+                  </td>
+                  <!--  -->
+                  <!-- not hasTax -->
+                  <td class="xmdjCol" data-bind="visible:$parent.data.hasTax()?false:true">
+                    <span class="inputwrap">
+                      <input type="text" class="xmdj" data-bind="value: row.xmdj,event: {change: function (data,event) {$parent.methods.xmdjChangeFn($data,event)}}" />
+                    </span>
+                  </td>
+                  <td class="xmjeCol" data-bind="visible:$parent.data.hasTax()?false:true">
+                    <span class="inputwrap">
+                      <input type="text" class="xmje j-xmje" data-bind="value: row.xmje,
 											 					  event: {
 																		 change: function(data,event){$parent.methods.xmjeChangeFn($data,event)},
 																		 keyup: function(data,event){$parent.methods.xmjshjKeyupFn($data,event)},
 																		}" />
-                </span>
-              </td>
-              <!--  -->
-              <td>
-                <span class="inputwrap">
-                  <!-- ko if: $parent.data.specialSonFplx() != '_NCPSG' -->
-                  <!-- ko if: (!$parent.data.defaultTaxEnable() ||
+                    </span>
+                  </td>
+                  <!--  -->
+                  <td>
+                    <span class="inputwrap">
+                      <!-- ko if: $parent.data.specialSonFplx() != '_NCPSG' -->
+                      <!-- ko if: (!$parent.data.defaultTaxEnable() ||
 											!$parent.data.isPageEnable()) || row.lslbs() == 2 -->
-                  <span class="text" data-bind="
+                      <span class="text" data-bind="
 								    		text: row.lslbs() == 2 ? '不征税' :
 								    		(	row.sl() == null? '' :
 									    		( row.sl() == '0.00' && row.lslbs() == 1 ?
@@ -668,10 +619,10 @@
 									    		)
 									    	)
 								       "></span>
-                  <!-- /ko -->
-                  <!-- ko if: row.lslbs() != 2 && $parent.data.isPageEnable() &&
+                      <!-- /ko -->
+                      <!-- ko if: row.lslbs() != 2 && $parent.data.isPageEnable() &&
 								    	$parent.data.defaultTaxEnable() -->
-                  <select class="sl" style="display: inline-block;" data-bind="
+                      <select class="sl" style="display: inline-block;" data-bind="
 							        	options: $parent.data.slList,
 							        	value: row.sl,
 				    			     	optionsText:'name',
@@ -693,22 +644,22 @@
 				    			     		}
 				    			     	}
 											"></select>
-                  <!-- /ko -->
-                  <!-- /ko -->
-                  <!-- ko if: $parent.data.specialSonFplx() == '_NCPSG' -->
-                  <span class="text" data-bind="text: row.sl() > 0 ? '免税' : row.sl()*100+'%'">免税</span>
-                  <!-- /ko -->
-                </span>
-              </td>
-              <td class="seCol">
-                <span class="inputwrap">
-                  <p class="se" data-bind="text: row.se"></p>
-                </span>
-              </td>
-              <td class="zkCol">
-                <span class="inputwrap" data-bind="visible: !$parent.data.isKce()">
-                  <!-- ko if: $parent.data.isPageEnable() -->
-                  <select class="sl" data-bind="
+                      <!-- /ko -->
+                      <!-- /ko -->
+                      <!-- ko if: $parent.data.specialSonFplx() == '_NCPSG' -->
+                      <span class="text" data-bind="text: row.sl() > 0 ? '免税' : row.sl()*100+'%'">免税</span>
+                      <!-- /ko -->
+                    </span>
+                  </td>
+                  <td class="seCol">
+                    <span class="inputwrap">
+                      <p class="se" data-bind="text: row.se"></p>
+                    </span>
+                  </td>
+                  <td class="zkCol">
+                    <span class="inputwrap" data-bind="visible: !$parent.data.isKce()">
+                      <!-- ko if: $parent.data.isPageEnable() -->
+                      <select class="sl" data-bind="
 								  		options: $parent.data.zkTypeList,
 								  		value:row.zkType,
 								  		optionsText:'name',
@@ -719,18 +670,18 @@
 								  			}
 								  		}
 								  	">
-                  </select>
-                  <!-- /ko -->
-                  <!-- ko if: !$parent.data.isPageEnable() -->
-                  <span style="
+                      </select>
+                      <!-- /ko -->
+                      <!-- ko if: !$parent.data.isPageEnable() -->
+                      <span style="
 											color: #666;
 									    width: 45%;
 									    float: right;
 									    height: 18px;
 									    margin-left: -4px;
 										" data-bind="text: row.zkType() == 'yuan' ? '元' : '%'"></span>
-                  <!-- /ko -->
-                  <input type="text" data-bind="
+                      <!-- /ko -->
+                      <input type="text" data-bind="
 								  		visible: row.zkType() == '%',
 								  		value:row.zkl,
 								  		event:{
@@ -742,7 +693,7 @@
 								  			}
 								  		}
 								  	">
-                  <input e-type="zkje" type="text" data-bind="
+                      <input e-type="zkje" type="text" data-bind="
 								  		visible: row.zkType() == 'yuan',
 								  		value:row.zkje,
 								  		event:{
@@ -751,164 +702,157 @@
 								  			},
 								  		}
 								  	">
-                </span>
-                <span class="inputwrap" data-bind="visible: $parent.data.isKce"></span>
-              </td>
-              <td>
-                <div class="rowIcon" data-bind="visible: $root.data.fromPage() !== 'view'">
-                  <span class="rowAdd icn-group" data-bind="click: function(){$parent.methods.addEinvoiceapplybRow()},
+                    </span>
+                    <span class="inputwrap" data-bind="visible: $parent.data.isKce"></span>
+                  </td>
+                  <td>
+                    <div class="rowIcon" data-bind="visible: $root.data.fromPage() !== 'view'">
+                      <span class="rowAdd icn-group" data-bind="click: function(){$parent.methods.addEinvoiceapplybRow()},
 										       visible:$root.methods.isEnableAddRow(row)">
 
-                  </span>
-                  <span class="rowDel icn-stop" data-bind="click: function(data) {$parent.methods.delEinvoiceapplybRow(data, $index() + 1)},
+                      </span>
+                      <span class="rowDel icn-stop" data-bind="click: function(data) {$parent.methods.delEinvoiceapplybRow(data, $index() + 1)},
 													  visible:$root.methods.isEnableDelRow(row)">
-                  </span>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-          <!-- /ko -->
-          <tr data-bind="if: data.isBigDatas()">
-            <td colspan="10">（明细过多，暂不支持显示）</td>
-          </tr>
-          <tbody>
-            <tr>
-              <td colspan="2">合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计</td>
-              <td colspan="5" class="hjjeCol"
-                data-bind="text:methods.prefixSymbolFn('￥',data.hasTax()?data.einvoiceapply.jshj():data.einvoiceapply.hjje())">
-                ￥126.21</td>
-              <td colspan="2" class="hjseCol" data-bind="text:methods.prefixSymbolFn('￥',data.einvoiceapply.hjse())">
-                ￥13.21</td>
-              <td colspan="2">&nbsp;</td>
-            </tr>
-            <tr>
-              <td colspan="2" class="jshjColUpperTitle">价税合计（大写）</td>
-              <td colspan="4" class="jshjColUpper" data-bind="text:methods.changeToBig(data.einvoiceapply.jshj())">
-                ￥126.21</td>
-              <td class="jshjColLowerTitle">(小写)</td>
-              <td class="jshjColLower" data-bind="
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+              <!-- /ko -->
+              <tr data-bind="if: data.isBigDatas()">
+                <td colspan="10">（明细过多，暂不支持显示）</td>
+              </tr>
+              <tbody>
+                <tr>
+                  <td colspan="2">合&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计</td>
+                  <td colspan="5" class="hjjeCol" data-bind="text:methods.prefixSymbolFn('￥',data.hasTax()?data.einvoiceapply.jshj():data.einvoiceapply.hjje())">
+                    ￥126.21</td>
+                  <td colspan="2" class="hjseCol" data-bind="text:methods.prefixSymbolFn('￥',data.einvoiceapply.hjse())">
+                    ￥13.21</td>
+                  <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="jshjColUpperTitle">价税合计（大写）</td>
+                  <td colspan="4" class="jshjColUpper" data-bind="text:methods.changeToBig(data.einvoiceapply.jshj())">
+                    ￥126.21</td>
+                  <td class="jshjColLowerTitle">(小写)</td>
+                  <td class="jshjColLower" data-bind="
 								attr: {
 									colspan: 4
 								},
 								text:methods.prefixSymbolFn('￥',data.einvoiceapply.jshj())
 								">￥126.21</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <!-- end .fp-order-body -->
-    </div>
-    <!-- end .fp-invoice-order -->
-    <div class="fp-unit-sale-and-remark" data-bind="css: {addHeight: data.specialSonFplx() == '_NCPSG'}">
-      <div class="fp-unit-sale" data-bind="
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- end .fp-order-body -->
+        </div>
+        <!-- end .fp-invoice-order -->
+        <div class="fp-unit-sale-and-remark" data-bind="css: {addHeight: data.specialSonFplx() == '_NCPSG'}">
+          <div class="fp-unit-sale" data-bind="
 					with: data.einvoiceapply,
 					enableAll:data.isPageEnable
 				">
-        <div class="fp-sale-title">
-          <span>销售方</span>
-        </div>
-        <div class="fp-sale-content">
-          <div class="fp-form-group">
-            <span class="fp-group-addon"></span>
-            <label class="fp-group-label">
-              <span class="c_import" data-bind="visible: $parent.data.specialSonFplx() == '_NCPSG'">*</span>
-              名<span class="filler"></span>称：</label>
-            <!-- ko if: $parent.data.specialSonFplx() == '_NCPSG' -->
-            <p>
-              <input id="xsfMc-input" style="width: 75%;" class="fp-form-control" type="text" data-bind="value: gmfMc"
-                autocomplete="off">
-            <div class="xsfMc-search-empty">
-              <i data-bind="visible: $parent.data.isShowEmpty, click: $parent.methods.emptyKeyWord"></i>
+            <div class="fp-sale-title">
+              <span>销售方</span>
             </div>
-            </p>
-            <!-- /ko -->
-            <!-- ko if: $parent.data.specialSonFplx() !== '_NCPSG' -->
-            <p class="fp-form-control-static" data-bind="text: xsfMc,attr:{'title':xsfMc}">销货单位名称</p>
-            <!-- /ko -->
+            <div class="fp-sale-content">
+              <div class="fp-form-group">
+                <span class="fp-group-addon"></span>
+                <label class="fp-group-label">
+                  <span class="c_import" data-bind="visible: $parent.data.specialSonFplx() == '_NCPSG'">*</span>
+                  名<span class="filler"></span>称：</label>
+                <!-- ko if: $parent.data.specialSonFplx() == '_NCPSG' -->
+                <p>
+                  <input id="xsfMc-input" style="width: 75%;" class="fp-form-control" type="text" data-bind="value: gmfMc" autocomplete="off">
+                <div class="xsfMc-search-empty">
+                  <i data-bind="visible: $parent.data.isShowEmpty, click: $parent.methods.emptyKeyWord"></i>
+                </div>
+                </p>
+                <!-- /ko -->
+                <!-- ko if: $parent.data.specialSonFplx() !== '_NCPSG' -->
+                <p class="fp-form-control-static" data-bind="text: xsfMc,attr:{'title':xsfMc}">销货单位名称</p>
+                <!-- /ko -->
+              </div>
+              <div class="fp-form-group">
+                <span class="fp-group-addon"></span>
+                <label class="fp-group-label">
+                  <span class="c_import" data-bind="visible: $parent.data.specialSonFplx() == '_NCPSG'">*</span>
+                  纳税人识别号：</label>
+                <!-- ko if: $parent.data.specialSonFplx() == '_NCPSG' -->
+                <p>
+                  <input style="width: 75%;" class="fp-form-control" type="text" data-bind="value: gmfNsrsbh" autocomplete="off" onblur="this.value = this.value.toUpperCase()">
+                </p>
+                <!-- /ko -->
+                <!-- ko if: $parent.data.specialSonFplx() !== '_NCPSG' -->
+                <p class="fp-form-control-static" data-bind="text: xsfNsrsbh,attr:{'title':xsfNsrsbh}">纳税人识别号</p>
+                <!-- /ko -->
+              </div>
+              <div class="fp-form-group">
+                <span class="fp-group-addon"></span>
+                <label class="fp-group-label">
+                  <span class="c_import" data-bind="visible: $parent.data.specialSonFplx() == '_NCPSG'">*</span>
+                  地&nbsp;&nbsp;址、电&nbsp;&nbsp;话：</label>
+                <!-- ko if: $parent.data.specialSonFplx() == '_NCPSG' -->
+                <p>
+                  <input style="width: 75%;" class="fp-form-control" type="text" data-bind="value: gmfDzdh" autocomplete="off">
+                </p>
+                <!-- /ko -->
+                <!-- ko if: $parent.data.specialSonFplx() !== '_NCPSG' -->
+                <p class="fp-form-control-static" data-bind="text: xsfDzdh,attr:{'title':xsfDzdh}">地址、电话</p>
+                <!-- /ko -->
+              </div>
+              <div class="fp-form-group">
+                <span class="fp-group-addon"></span>
+                <label class="fp-group-label">开户行及账号：</label>
+                <!-- ko if: $parent.data.specialSonFplx() == '_NCPSG' -->
+                <p>
+                  <input style="width: 75%;" class="fp-form-control" type="text" data-bind="value: gmfYhzh" autocomplete="off">
+                </p>
+                <!-- /ko -->
+                <!-- ko if: $parent.data.specialSonFplx() !== '_NCPSG' -->
+                <p class="fp-form-control-static" data-bind="text: xsfYhzh,attr:{'title':xsfYhzh}">开户行及账号</p>
+                <!-- /ko -->
+              </div>
+            </div>
           </div>
-          <div class="fp-form-group">
-            <span class="fp-group-addon"></span>
-            <label class="fp-group-label">
-              <span class="c_import" data-bind="visible: $parent.data.specialSonFplx() == '_NCPSG'">*</span>
-              纳税人识别号：</label>
-            <!-- ko if: $parent.data.specialSonFplx() == '_NCPSG' -->
-            <p>
-              <input style="width: 75%;" class="fp-form-control" type="text" data-bind="value: gmfNsrsbh"
-                autocomplete="off" onblur="this.value = this.value.toUpperCase()">
-            </p>
-            <!-- /ko -->
-            <!-- ko if: $parent.data.specialSonFplx() !== '_NCPSG' -->
-            <p class="fp-form-control-static" data-bind="text: xsfNsrsbh,attr:{'title':xsfNsrsbh}">纳税人识别号</p>
-            <!-- /ko -->
-          </div>
-          <div class="fp-form-group">
-            <span class="fp-group-addon"></span>
-            <label class="fp-group-label">
-              <span class="c_import" data-bind="visible: $parent.data.specialSonFplx() == '_NCPSG'">*</span>
-              地&nbsp;&nbsp;址、电&nbsp;&nbsp;话：</label>
-            <!-- ko if: $parent.data.specialSonFplx() == '_NCPSG' -->
-            <p>
-              <input style="width: 75%;" class="fp-form-control" type="text" data-bind="value: gmfDzdh"
-                autocomplete="off">
-            </p>
-            <!-- /ko -->
-            <!-- ko if: $parent.data.specialSonFplx() !== '_NCPSG' -->
-            <p class="fp-form-control-static" data-bind="text: xsfDzdh,attr:{'title':xsfDzdh}">地址、电话</p>
-            <!-- /ko -->
-          </div>
-          <div class="fp-form-group">
-            <span class="fp-group-addon"></span>
-            <label class="fp-group-label">开户行及账号：</label>
-            <!-- ko if: $parent.data.specialSonFplx() == '_NCPSG' -->
-            <p>
-              <input style="width: 75%;" class="fp-form-control" type="text" data-bind="value: gmfYhzh"
-                autocomplete="off">
-            </p>
-            <!-- /ko -->
-            <!-- ko if: $parent.data.specialSonFplx() !== '_NCPSG' -->
-            <p class="fp-form-control-static" data-bind="text: xsfYhzh,attr:{'title':xsfYhzh}">开户行及账号</p>
-            <!-- /ko -->
-          </div>
-        </div>
-      </div>
-      <div class="fp-remark">
-        <div class="fp-remark-title">
-          <span>备<span class="filler"></span>注</span>
-        </div>
-        <div class="fp-remark-content" auto-const-id="hand-invoice-textarea-bz" data-bind="enableAll:data.isPageEnable">
-          <textarea class="remark" rows="8" cols="50" data-bind="value:data.einvoiceapply.bz,
+          <div class="fp-remark">
+            <div class="fp-remark-title">
+              <span>备<span class="filler"></span>注</span>
+            </div>
+            <div class="fp-remark-content" auto-const-id="hand-invoice-textarea-bz" data-bind="enableAll:data.isPageEnable">
+              <textarea class="remark" rows="8" cols="50" data-bind="value:data.einvoiceapply.bz,
 						event:{keyup:methods.remarkKeyup}"></textarea>
+            </div>
+          </div>
+          <!-- end .fp-remark -->
         </div>
+        <!-- end .fp-unit-sale-and-remark -->
       </div>
-      <!-- end .fp-remark -->
-    </div>
-    <!-- end .fp-unit-sale-and-remark -->
-  </div>
-  <!-- end .fp-page-content -->
-  <div class="fp-page-footer">
-    <div class="fp-row" data-bind="with: data.einvoiceapply,enableAll:data.isPageEnable">
-      <div class="fp-form-group">
-        <span class="fp-group-addon">&nbsp;</span>
-        <label class="fp-group-label">收款人：</label>
-        <div class="fp-form-control-container">
-          <input type="text" auto-const-id="hand-invoice-payee" class="fp-form-control skr"
-            data-bind="value: skr,valueUpdate: 'afterkeydown'" data-auto="skr">
-        </div>
-      </div>
-      <div class="fp-form-group">
-        <span class="fp-group-addon">&nbsp;</span>
-        <label class="fp-group-label">复核人：</label>
-        <div class="fp-form-control-container">
-          <input type="text" auto-const-id="hand-invoice-reviewer" class="fp-form-control fhr"
-            data-bind="value: fhr,valueUpdate: 'afterkeydown'" data-auto="fhr">
-        </div>
-      </div>
-      <div class="fp-form-group">
-        <span class="fp-group-addon">&nbsp;</span>
-        <label class="fp-group-label">开票人：</label>
-        <div class="fp-form-control-container" style="height: 28px;">
-          <!-- <p class="fp-form-control-static" data-bind="text: kpr"></p> -->
-          <select class="fp-form-control" auto-const-id="hand-invoice-drawer" style="display: inline-block;" data-bind="
+      <!-- end .fp-page-content -->
+      <div class="fp-page-footer">
+        <div class="fp-row" data-bind="with: data.einvoiceapply,enableAll:data.isPageEnable">
+          <div class="fp-form-group">
+            <span class="fp-group-addon">&nbsp;</span>
+            <label class="fp-group-label">收款人：</label>
+            <div class="fp-form-control-container">
+              <input type="text" auto-const-id="hand-invoice-payee" class="fp-form-control skr" data-bind="value: skr,valueUpdate: 'afterkeydown'" data-auto="skr">
+            </div>
+          </div>
+          <div class="fp-form-group">
+            <span class="fp-group-addon">&nbsp;</span>
+            <label class="fp-group-label">复核人：</label>
+            <div class="fp-form-control-container">
+              <input type="text" auto-const-id="hand-invoice-reviewer" class="fp-form-control fhr" data-bind="value: fhr,valueUpdate: 'afterkeydown'" data-auto="fhr">
+            </div>
+          </div>
+          <div class="fp-form-group">
+            <span class="fp-group-addon">&nbsp;</span>
+            <label class="fp-group-label">开票人：</label>
+            <div class="fp-form-control-container" style="height: 28px;">
+              <!-- <p class="fp-form-control-static" data-bind="text: kpr"></p> -->
+              <select class="fp-form-control" auto-const-id="hand-invoice-drawer" style="display: inline-block;" data-bind="
               options: $parent.data.kprArr,
               select2value: kpr,
               pluginOption: {
@@ -917,51 +861,47 @@
               optionsText: 'name',
               optionsValue: 'id',
               optionsAfterRender: $parent.methods.setOptionTitle">
-          </select>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="fp-row" data-bind="enableAll:data.isPageEnable" style="margin-top: 16px;">
+          <div class="fp-form-group" data-bind="visible: (data.fplx() == '1' || data.fplx() == '8' || data.fplx() == '2')">
+            <span class="fp-group-addon">&nbsp;</span>
+            <label class="fp-group-label">收票邮箱：</label>
+            <div class="fp-form-control-container">
+              <input type="text" class="fp-form-control" auto-const-id="hand-invoice-collect-email" data-bind="value: data.email.address">
+            </div>
+          </div>
+          <div class="fp-form-group" data-bind="if:(data.isAuthsmsSend() && data.fplx() == '1' || data.fplx() == '8' || data.fplx() == '2'),enableAll:data.isPageEnable">
+            <span class="fp-group-addon">&nbsp;</span>
+            <label class="fp-group-label">收票手机：</label>
+            <div class="fp-form-control-container">
+              <input type="text" class="fp-form-control" auto-const-id="hand-invoice-collect-mobile" data-bind="value: data.mobile.address">
+            </div>
+          </div>
         </div>
       </div>
+      <!-- end .fp-page-footer -->
     </div>
-    <div class="fp-row" data-bind="enableAll:data.isPageEnable" style="margin-top: 16px;">
-      <div class="fp-form-group" data-bind="visible: (data.fplx() == '1' || data.fplx() == '8' || data.fplx() == '2')">
-        <span class="fp-group-addon">&nbsp;</span>
-        <label class="fp-group-label">收票邮箱：</label>
-        <div class="fp-form-control-container">
-          <input type="text" class="fp-form-control" auto-const-id="hand-invoice-collect-email"
-            data-bind="value: data.email.address">
+    <div class="fp-page-operate" data-bind="visible:data.einvoiceapply.fpzt()!='2'">
+      <div class=" yb-options-bar">
+        <!-- ko if: data.isPrintVisble_btns_common -->
+        <div class="btn btn-default" auto-const-id="hand-invoice-discard-ticket" data-bind="event:{click:methods.delInvoiceBtn}">
+          <div class="btn-icons icn-trash"></div>
+          <span>丢弃</span>
         </div>
-      </div>
-      <div class="fp-form-group"
-        data-bind="if:(data.isAuthsmsSend() && data.fplx() == '1' || data.fplx() == '8' || data.fplx() == '2'),enableAll:data.isPageEnable">
-        <span class="fp-group-addon">&nbsp;</span>
-        <label class="fp-group-label">收票手机：</label>
-        <div class="fp-form-control-container">
-          <input type="text" class="fp-form-control" auto-const-id="hand-invoice-collect-mobile"
-            data-bind="value: data.mobile.address">
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end .fp-page-footer -->
-</div>
-<div class="fp-page-operate" data-bind="visible:data.einvoiceapply.fpzt()!='2'">
-  <div class=" yb-options-bar">
-    <!-- ko if: data.isPrintVisble_btns_common -->
-    <div class="btn btn-default" auto-const-id="hand-invoice-discard-ticket"
-      data-bind="event:{click:methods.delInvoiceBtn}">
-      <div class="btn-icons icn-trash"></div>
-      <span>丢弃</span>
-    </div>
-    <div class="btn btn-default" auto-const-id="hand-invoice-save-ticket" data-bind="
+        <div class="btn btn-default" auto-const-id="hand-invoice-save-ticket" data-bind="
 					visible:data.canSave,
 					debounce:methods.saveInvoiceBtn,
 					css:{
 						'setGray':!data.saveLock(),
 						disabled: (data.isDiwork() && !data.selectedOrgId())
 				}">
-      <div class="btn-icons icn-save"></div>
-      <span>保存</span>
-    </div>
-    <div class="btn btn-default-main" auto-const-id="hand-invoice-submit-ticket" data-bind="
+          <div class="btn-icons icn-save"></div>
+          <span>保存</span>
+        </div>
+        <div class="btn btn-default-main" auto-const-id="hand-invoice-submit-ticket" data-bind="
 					visible:data.canInvoiceing,
 		    	debounce: function(d, e){
 		    		if(!$(e.currentTarget).hasClass('disabled')){//兼容IE10及以下版本
@@ -972,67 +912,62 @@
 		    		disabled: data.invoiceBtnLock() || !data.isControlEnable() || (data.isDiwork() && !data.selectedOrgId())
 		    	}
 		    ">
-      <div class="btn-icons icn-cn-kaipiao"></div>
-      <span>开票</span>
-    </div>
-    <!-- /ko -->
-    <!-- ko if: data.isPrintVisble_btns_success -->
-    <div class="btn btn-default" auto-const-id="hand-invoice-add-success"
-      data-bind="$$click:methods.clearInvoiceBtn(true, function() { methods.addEinvoiceapplybRow(); });">
-      <div class="btn-icons icn-add_square"></div>
-      <span>新增</span>
-    </div>
-    <div class="btn btn-default-special" auto-const-id="hand-invoice-print-success"
-      data-bind="event:{click:methods.doTaxPrintFn}">
-      <div class="btn-icons icn-print"></div>
-      <span>打印</span>
-    </div>
-    <!-- /ko -->
-    <!-- ko if: data.isPrintVisble_btns_fail -->
-    <div class="btn btn-default" auto-const-id="hand-invoice-trash-fail" data-bind="
+          <div class="btn-icons icn-cn-kaipiao"></div>
+          <span>开票</span>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: data.isPrintVisble_btns_success -->
+        <div class="btn btn-default" auto-const-id="hand-invoice-add-success" data-bind="$$click:methods.clearInvoiceBtn(true, function() { methods.addEinvoiceapplybRow(); });">
+          <div class="btn-icons icn-add_square"></div>
+          <span>新增</span>
+        </div>
+        <div class="btn btn-default-special" auto-const-id="hand-invoice-print-success" data-bind="event:{click:methods.doTaxPrintFn}">
+          <div class="btn-icons icn-print"></div>
+          <span>打印</span>
+        </div>
+        <!-- /ko -->
+        <!-- ko if: data.isPrintVisble_btns_fail -->
+        <div class="btn btn-default" auto-const-id="hand-invoice-trash-fail" data-bind="
 					event:{click:methods.delInvoiceBtn},
 					visible: !data.printTimeoutErrInfo()
 				">
-      <div class="btn-icons icn-trash"></div>
-      <span>丢弃</span>
-    </div>
-    <div class="btn btn-default" auto-const-id="hand-invoice-save-fail" data-bind="
+          <div class="btn-icons icn-trash"></div>
+          <span>丢弃</span>
+        </div>
+        <div class="btn btn-default" auto-const-id="hand-invoice-save-fail" data-bind="
 		    	debounce: methods.saveInvoiceBtn,
 					visible: !data.printTimeoutErrInfo(),
 		    	css:{'setGray':!data.saveLock(),disabled: (data.isDiwork() && !data.selectedOrgId())}
 		    ">
-      <div class="btn-icons icn-save"></div>
-      <span>保存</span>
-    </div>
-    <div class="btn btn-default-main" auto-const-id="hand-invoice-add-fail"
-      data-bind="$$click:methods.clearInvoiceBtn(true, function() { methods.addEinvoiceapplybRow(); });">
-      <div class="btn-icons icn-add_square"></div>
-      <span>新增</span>
-    </div>
-    <!-- /ko -->
-  </div>
-
-</div>
-
-<div id="kp-bookingInfoModal" class="modal fade fp-bs-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true" style="width: 80%;min-width: 810px;z-index: 1061;">
-  <div class="modal-dialog" style="width: 100%;">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-          data-bind="click: function(){methods.hideBookingInfo();}">
-          &times;
-        </button>
-        <h4 class="modal-title">
-          <span>开票信息</span>
-        </h4>
+          <div class="btn-icons icn-save"></div>
+          <span>保存</span>
+        </div>
+        <div class="btn btn-default-main" auto-const-id="hand-invoice-add-fail" data-bind="$$click:methods.clearInvoiceBtn(true, function() { methods.addEinvoiceapplybRow(); });">
+          <div class="btn-icons icn-add_square"></div>
+          <span>新增</span>
+        </div>
+        <!-- /ko -->
       </div>
-      <div class="modal-body">
-        <div class="yb-options-bar">
-          <div class="search-container-fuzzy">
-            <span class="search-img icn-query" data-bind="click: function(){methods.queryBookData();}">
-            </span>
-            <input type="text" class="advanedFocus" placeholder="请输入购方名称/收票手机/收票邮箱/序号" data-bind="
+
+    </div>
+
+    <div id="kp-bookingInfoModal" class="modal fade fp-bs-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width: 80%;min-width: 810px;z-index: 1061;">
+      <div class="modal-dialog" style="width: 100%;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind="click: function(){methods.hideBookingInfo();}">
+              &times;
+            </button>
+            <h4 class="modal-title">
+              <span>开票信息</span>
+            </h4>
+          </div>
+          <div class="modal-body">
+            <div class="yb-options-bar">
+              <div class="search-container-fuzzy">
+                <span class="search-img icn-query" data-bind="click: function(){methods.queryBookData();}">
+                </span>
+                <input type="text" class="advanedFocus" placeholder="请输入购方名称/收票手机/收票邮箱/序号" data-bind="
                 	textInput: data.bookingSearchKey,
                 	event: {
 	                	keyup: function(d, e){
@@ -1042,13 +977,11 @@
 		                }
 	                }
                 ">
-          </div>
-        </div>
+              </div>
+            </div>
 
-        <script type="text/html" id="table-list-handle-invoice">
-          <tr
-            class="tbody-list"
-            data-bind="
+            <script type="text/html" id="table-list-handle-invoice">
+              <tr class="tbody-list" data-bind="
 			                  click: function(){
 			                    $root.methods.bookingRawChecked($index());
 			                  },
@@ -1060,87 +993,74 @@
 			                  css: {
 			                    selected: item.isChecked
 			                  }
-			                "
-          >
-            <td class="check-area" style="width: 50px;">
-              <input
-                readonly
-                type="radio"
-                class="filled-in"
-                data-bind="
+			                ">
+                <td class="check-area" style="width: 50px;">
+                  <input readonly type="radio" class="filled-in" data-bind="
 			                      checkValue: item.isChecked,
-			                    "
-              />
-            </td>
-            <td style="width: 13%;" data-bind="
+			                    " />
+                </td>
+                <td style="width: 13%;" data-bind="
 			                	text: item.gmf_mc,
 				                attr: {
 				                	title: item.gmf_mc
 				                }
 			                "></td>
-            <td style="width: 13%;" data-bind="
+                <td style="width: 13%;" data-bind="
 			                	text: item.gmf_nsrsbh,
 				                attr: {
 				                	title: item.gmf_nsrsbh
 				                }
 			                "></td>
-            <td style="width: 11%;" data-bind="
+                <td style="width: 11%;" data-bind="
 			                	text: item.revphone,
 				                attr: {
 				                	title: item.revphone
 				                }
 			                "></td>
-            <td style="width: 12%;" data-bind="
+                <td style="width: 12%;" data-bind="
 			                	text: item.revemail,
 				                attr: {
 				                	title: item.revemail
 				                }
 			                "></td>
-            <td style="width: 7%;" data-bind="
+                <td style="width: 7%;" data-bind="
 			                	text: item.noteValue,
 				                attr: {
 				                	title: item.noteValue
 				                }
 			                "></td>
-            <td style="width: 7%;" data-bind="
+                <td style="width: 7%;" data-bind="
 			                	text: item.jshj || '',
 				                attr: {
 				                	title: item.jshj || ''
 				                }
 											"></td>
-            <td style="width: 13%;" data-bind="
+                <td style="width: 13%;" data-bind="
 												text: item.fpbz,
 												attr: {
 													title: item.fpbz
 												}
 											"></td>
-            <td style="width: 13%;" data-bind="
+                <td style="width: 13%;" data-bind="
 			                	text: item.zdybz,
 				                attr: {
 				                	title: item.zdybz
 				                }
 			                "></td>
-            <td>
-              <svg
-                class="row-handle"
-                data-toggle="tooltip"
-                class="invoice-del"
-                title="删除"
-                data-placement="top"
-                data-bind="
+                <td>
+                  <svg class="row-handle" data-toggle="tooltip" class="invoice-del" title="删除" data-placement="top" data-bind="
 			  							    	click: function(d){
 				  							    	$root.methods.delBookingInfo(d);
 				  							    }
-			                    "
-              >
-                <use xlink:href="#invoice-del"/>
-              </svg>
-            </td>
-          </tr>
-        </script>
+			                    ">
+                    <use xlink:href="#invoice-del" />
+                  </svg>
+                </td>
+              </tr>
+            </script>
 
 
-        <table-list class="table-component" params="
+            <table-list class="table-component" params="
           headerConfig: data.headerConfig,
           bodyTplId: 'table-list-handle-invoice',
           bodyDataList: data.bookingList,
@@ -1154,7 +1074,7 @@
           fetchDataHandler: methods.queryBookData,
         " />
 
-        <!--<div class="table-container">
+            <!--<div class="table-container">
           <div class="shadow-modal table-head-container">
             <div class="table-thead">
               <div class="thead">
@@ -1181,7 +1101,7 @@
             <div class="shadow-modal table-tbody-container j-booking-table">
               &lt;!&ndash; ko if: !data.bookingList().length && !data.isLoading() &ndash;&gt;
               <div class="loadMore" style="padding-top: 50px;">
-                <img class="no-data-img" src="../../assets/diwork/no-have-data.png">
+                <img class="no-data-img" src="./assets/diwork/no-have-data.png">
                 <p class="no-data-text" data-bind="text: data.bookingTip"></p>
               </div>
               &lt;!&ndash; /ko &ndash;&gt;
@@ -1289,7 +1209,7 @@
               </table>
               &lt;!&ndash; /ko &ndash;&gt;
               <div class="loadMore" data-bind="visible: data.isLoading">
-                <img data-bind="visible: data.loadingIsShow" src="../../assets/diwork/loading.png">
+                <img data-bind="visible: data.loadingIsShow" src="./assets/diwork/loading.png">
                 <span data-bind="text: data.loadingText"></span>
               </div>
               <div class="loadMore" data-bind="
@@ -1302,109 +1222,101 @@
             </div>
           </div>
         </div>-->
-      </div>
-      <div class="modal-footer">
-        <span class="button light fl" auto-const-id="hand-invoice-addinfo-ticket"
-          data-bind="click: function(){methods.exportBookingData();}, text: data.secondDownText">导出查询结果</span>
-        <span class="button light" auto-const-id="hand-invoice-booking-cancel" data-dismiss="modal" aria-hidden="true"
-          data-bind="click: function(){methods.hideBookingInfo();}">取消</span>
-        <span class="button default" auto-const-id="hand-invoice-addinfo-ticket" data-bind="click: function(){
+          </div>
+          <div class="modal-footer">
+            <span class="button light fl" auto-const-id="hand-invoice-addinfo-ticket" data-bind="click: function(){methods.exportBookingData();}, text: data.secondDownText">导出查询结果</span>
+            <span class="button light" auto-const-id="hand-invoice-booking-cancel" data-dismiss="modal" aria-hidden="true" data-bind="click: function(){methods.hideBookingInfo();}">取消</span>
+            <span class="button default" auto-const-id="hand-invoice-addinfo-ticket" data-bind="click: function(){
 	              methods.addBooking2invoice();
 	            }">添加至发票</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div id="multiZkModal" class="modal fade fp-bs-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="false" style="min-width: 600px;">
-  <div class="modal-dialog" data-bind="
+    <div id="multiZkModal" class="modal fade fp-bs-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="min-width: 600px;">
+      <div class="modal-dialog" data-bind="
 			with: data.multiZkInfo,
 			enter: function(d, e){
 				e.target.blur();//此操作反应略慢，用于避免多次回车
 				methods.sureMultiZk();
 			}
 		">
-    <div class="modal-content" style="font-family: '微软雅黑';">
-      <div class="modal-header">
-        <button class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
-        <h4 class="modal-title"> 多行折扣 </h4>
-      </div>
-      <div class="modal-body">
-        <div class="text-groups">
-          <div class="groups-lable">
-            <span class="lable-text">折扣行数</span>
-            <span class="c_import">*</span>
+        <div class="modal-content" style="font-family: '微软雅黑';">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+            <h4 class="modal-title"> 多行折扣 </h4>
           </div>
-          <div class="groups-text">
-            <input class="text-text" maxlength="45" data-bind="value: hs" />
+          <div class="modal-body">
+            <div class="text-groups">
+              <div class="groups-lable">
+                <span class="lable-text">折扣行数</span>
+                <span class="c_import">*</span>
+              </div>
+              <div class="groups-text">
+                <input class="text-text" maxlength="45" data-bind="value: hs" />
+              </div>
+            </div>
+            <div class="text-groups">
+              <div class="groups-lable">
+                <span class="lable-text">商品金额</span>
+              </div>
+              <div class="groups-text">
+                <span class="show-lable" data-bind="text: je"></span> 元
+              </div>
+            </div>
+            <div class="text-groups">
+              <div class="groups-lable">
+                <span class="lable-text">折扣率</span>
+                <span class="c_import">*</span>
+              </div>
+              <div class="groups-text">
+                <input class="text-text" maxlength="45" data-bind="textInput: zkl" /> %
+              </div>
+            </div>
+            <div class="text-groups">
+              <div class="groups-lable">
+                <span class="lable-text">折扣金额</span>
+                <span class="c_import">*</span>
+              </div>
+              <div class="groups-text">
+                <input class="text-text" maxlength="45" data-bind="textInput: zkje" /> 元
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer" style="position:relative">
+            <span class="button light" auto-const-id="hand-invoice-discount-cancel" data-dismiss="modal">取消</span>
+            <span class="button default" auto-const-id="hand-invoice-discount-ensure" data-bind="click: $root.methods.sureMultiZk">确定</span>
           </div>
         </div>
-        <div class="text-groups">
-          <div class="groups-lable">
-            <span class="lable-text">商品金额</span>
-          </div>
-          <div class="groups-text">
-            <span class="show-lable" data-bind="text: je"></span> 元
-          </div>
-        </div>
-        <div class="text-groups">
-          <div class="groups-lable">
-            <span class="lable-text">折扣率</span>
-            <span class="c_import">*</span>
-          </div>
-          <div class="groups-text">
-            <input class="text-text" maxlength="45" data-bind="textInput: zkl" /> %
-          </div>
-        </div>
-        <div class="text-groups">
-          <div class="groups-lable">
-            <span class="lable-text">折扣金额</span>
-            <span class="c_import">*</span>
-          </div>
-          <div class="groups-text">
-            <input class="text-text" maxlength="45" data-bind="textInput: zkje" /> 元
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer" style="position:relative">
-        <span class="button light" auto-const-id="hand-invoice-discount-cancel" data-dismiss="modal">取消</span>
-        <span class="button default" auto-const-id="hand-invoice-discount-ensure"
-          data-bind="click: $root.methods.sureMultiZk">确定</span>
-      </div>
-    </div>
-  </div><!-- /.modal-content -->
-</div><!-- /.modal -->
-</div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+  </div>
 
-	</div>
-</template>
+</div></template>
 
 <script>
 export default {
-	name: 'invoice',
-	components: {},
-	data() {
-		return {
+  name: 'invoice',
+  components: {},
+  data() {
+    return {
 
-		};
-	},
-	beforeMount() {},
-	mounted() {
-		
-	},
+    };
+  },
+  beforeMount() { },
+  mounted() {
 
-	methods: {
-	
-	},
+  },
+
+  methods: {
+
+  },
 };
 </script>
 
 <style lang="scss">
-
 @import 'index.css';
-.page-com {
 
-
-}
+.page-com {}
 </style>
