@@ -1,6 +1,4 @@
-<template>
-	<div class="page-com">
-		<img src="../../assets/specimen-icon.png" alt="" class="specimenImg" data-bind="visible:data.expType() =='exp'" />
+<img src="../../assets/specimen-icon.png" alt="" class="specimenImg" data-bind="visible:data.expType() =='exp'" />
 <div class="fp-mask" data-bind="visible: data.isPrintVisbleMask">
   <div class="load-wait">
     <div class="load-label">开票中</div>
@@ -115,9 +113,9 @@
 						enableAll: data.isPageEnable
 					">
             <div class="fp-cRemark-bg">
-              <img alt="" src="./assets/MTY-eye-icon.png" data-bind="visible: data.isMTY_eye"
+              <img alt="" src="../../assets/MTY-eye-icon.png" data-bind="visible: data.isMTY_eye"
                 style="width: 70px;" />
-              <img alt="" src="./MTY-noeye-icon.png" data-bind="visible: !data.isMTY_eye()"
+              <img alt="" src="../../assets/MTY-noeye-icon.png" data-bind="visible: !data.isMTY_eye()"
                 style="width: 70px;" />
             </div>
             <h6>来源单据号</h6>
@@ -160,7 +158,7 @@
         <div class="fp-double-line"></div>
         <div class="fp-name letter-spacing-middle"></div>
         <div class="fp-seal-img" data-bind="style:{left:data.sealImgLeft}">
-          <img alt="" src="./static/seal/BEIJING.png" data-bind="attr:{ src: data.areaSealUrl }">
+          <img alt="" src="../../../common/static/seal/BEIJING.png" data-bind="attr:{ src: data.areaSealUrl }">
         </div>
       </div>
       <!-- ko if: (data.fplx() == 3 || data.fplx() == 4) && data.specialSonFplx() != '_JDC'-->
@@ -1376,35 +1374,3 @@
   </div><!-- /.modal-content -->
 </div><!-- /.modal -->
 </div>
-
-	</div>
-</template>
-
-<script>
-export default {
-	name: 'invoice',
-	components: {},
-	data() {
-		return {
-
-		};
-	},
-	beforeMount() {},
-	mounted() {
-		
-	},
-
-	methods: {
-	
-	},
-};
-</script>
-
-<style lang="scss">
-
-@import 'index.css';
-.page-com {
-
-
-}
-</style>
